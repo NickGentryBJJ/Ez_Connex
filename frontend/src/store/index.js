@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose} from 'redux'
-import {thunk} from 'redux-thunk'
+import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({});
 let enhancer;
@@ -13,6 +13,6 @@ let enhancer;
         enhancer = composeEnhancers(applyMiddleware(thunk, logger));
     }
 
-    export default configureStore = (preloadedState) => {
+    export default function configureStore(preloadedState) {
         return createStore(rootReducer, preloadedState, enhancer);
     };
