@@ -47,8 +47,6 @@ class User < ApplicationRecord
       token = SecureRandom::urlsafe_base64(16)
       return token unless User.exists?(session_token: token)
     end
-    
-    
   end
   
 end
