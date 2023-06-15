@@ -1,0 +1,39 @@
+h2, h3 {
+    color: #0a66c2;
+    
+}
+
+h1 {
+    font-weight: 100;
+    color: burlywood;
+    padding: 0%;
+}
+
+label {
+    color: black;
+  
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h2.ez {
+    color: white;
+    background-color: #0a66c2;
+    width: min-content;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+button {
+    background-color: #0a66c2;
+    color: white;
+    border-radius: 0px;
+    border-style: outset;
+    
+    margin-top: 15px;
+    padding: 3px;
+    padding-left: 65px;
+    padding-right: 65px;
+}

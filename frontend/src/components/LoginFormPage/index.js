@@ -32,12 +32,18 @@ function LoginFormPage() {
   }
 
   return (
+    <>
+    <h2 class="ez">EZ</h2>
+    <h2 class="connex">Connex</h2>
+    <h1>Welcome to your</h1> 
+    <h1>professional community</h1>
+
     <form onSubmit={handleSubmit}>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
       <label>
-        Email
+        <h4>Email</h4>    
         <input
           type="text"
           value={email}
@@ -45,8 +51,9 @@ function LoginFormPage() {
           required
         />
       </label>
+      <br/>
       <label>
-        Password
+        <h4>Password</h4>
         <input
           type="password"
           value={password}
@@ -54,8 +61,13 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <br/>
+      <button type="submit">Sign In</button>
     </form>
+    <p>-------------- or ----------------</p>
+    <button type="submit" onClick="">New to EZ Connex? Sign Up Now!</button>
+
+    </>
   );
 }
 
