@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { BiHomeAlt, BiLogInCircle } from "react-icons/bi";
 import {IoMdCreate} from "react-icons/io"
-
 import './Navigation.css';
 
 function Navigation() {
@@ -26,7 +25,7 @@ function Navigation() {
       </div>
     );
   }
-
+  
   return (
     <div className='nav'>
         {sessionLinks}
