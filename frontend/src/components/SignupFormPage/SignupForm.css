@@ -1,0 +1,18 @@
+h2.connex {
+    position: absolute;
+    top: 3px;
+    left: 50px;
+}
+
+h2.make {
+    color: black;
+}
+
+button {
+    padding-left: 49px;
+    padding-right: 49px;
+}
+
+div.agree {
+    width: 170px;
+}

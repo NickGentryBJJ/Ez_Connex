@@ -33,8 +33,8 @@ function LoginFormPage() {
 
   return (
     <>
-    <h2 class="ez">EZ</h2>
-    <h2 class="connex">Connex</h2>
+    <h2 className="ez">EZ</h2>
+    <h2 className="connex">Connex</h2>
     <h1>Welcome to your</h1> 
     <h1>professional community</h1>
 
@@ -65,7 +65,7 @@ function LoginFormPage() {
       <button type="submit">Sign In</button>
     </form>
     <p>-------------- or ----------------</p>
-    <button type="submit" onClick="">New to EZ Connex? Sign Up Now!</button>
+    <button type="submit">New to EZ Connex? Sign Up Now!</button>
 
     </>
   );
