@@ -1,0 +1,20 @@
+button.prof {
+    width: fit-content;
+    padding: 5px;
+    margin: 5px;
+}
+
+div.nav {
+    position: absolute;
+    width: max-content;
+    left: 150px;
+    flex-direction: column;
+    background-color: aliceblue;
+    
+}
+
+svg {
+
+    height: 2em;
+    width: 3em;
+  }
