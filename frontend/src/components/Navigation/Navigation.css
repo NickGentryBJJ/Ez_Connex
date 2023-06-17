@@ -1,7 +1,11 @@
 button.prof {
     width: fit-content;
     padding: 5px;
+    padding-top: 7px;
     margin: 5px;
+    height: 45px;
+    border-radius: 15px;
+
 }
 
 div.nav {
@@ -17,4 +21,9 @@ svg {
 
     height: 2em;
     width: 3em;
+  }
+
+  li {
+    list-style: none;
+    
   }

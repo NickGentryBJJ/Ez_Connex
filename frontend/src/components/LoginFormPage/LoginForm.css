@@ -29,9 +29,9 @@ h2.ez {
 button {
     background-color: #0a66c2;
     color: white;
-    border-radius: 0px;
+    border-radius: 15px;
     border-style: outset;
-    
+    height: 30px;
     margin-top: 15px;
     padding: 3px;
     padding-left: 65px;

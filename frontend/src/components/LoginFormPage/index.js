@@ -3,6 +3,8 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import { NavLink } from 'react-router-dom';
+
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -65,7 +67,13 @@ function LoginFormPage() {
       <button type="submit">Sign In</button>
     </form>
     <p>-------------- or ----------------</p>
-    <button type="submit">New to EZ Connex? Sign Up Now!</button>
+    {/* <button  type="submit" to="/signup">New to EZ Connex? Sign Up Now!</button> */}
+  
+    <NavLink to="/signup"> <button>
+      New to EZ Connex? Sign Up Now!
+      </button>
+      </NavLink>
+    
 
     </>
   );
