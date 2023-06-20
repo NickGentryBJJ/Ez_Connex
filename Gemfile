@@ -8,7 +8,7 @@ gem "rails", "~> 7.0.5"
 
 gem "pg", "~> 1.1"
 
-  gem "faker"
+gem "faker"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
