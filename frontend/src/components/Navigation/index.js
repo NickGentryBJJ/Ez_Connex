@@ -16,19 +16,23 @@ function Navigation() {
     );
   } else {
     sessionLinks = (
-      <div className='nav'>
-        <NavLink exact to="/"> <BiHomeAlt /> </NavLink>
-        
-        <NavLink to="/login"><BiLogInCircle/></NavLink>
-        
-        <NavLink to="/signup"> <IoMdCreate /></NavLink>
+      <div className='nav-right'>
+          <NavLink to="/signup">
+            <button className='join'>Join Now</button>
+          </NavLink>
+          <NavLink to="/login">
+            <button className='sign-in'>Sign In</button>
+          </NavLink>
       </div>
     );
   }
   
   return (
-    <div className='nav'>
-        {sessionLinks}
+    <div className='nav-wrapper'>
+      <div className='nav-left'>
+        <h1 className='logo'>EZ Connex</h1>
+      </div>
+      {sessionLinks}
     </div>
       
   );

@@ -22,8 +22,8 @@
     User.create!(
       first_name: 'Demo',
       last_name: 'lition', 
-      title: 'Wrecking Ball'
-      email: 'demo@user.io', 
+      title: 'Wrecking Ball',
+      email: 'demo@email.io', 
       password: 'password'
     )
   
@@ -32,7 +32,7 @@
       User.create!({
         first_name: Faker::Internet.unique.username(specifier: 3),
         last_name: Faker::Internet.unique.username(specifier: 3),
-        title: Faker::Internet.unique.title,
+        title: Faker::Internet.unique.username,
         email: Faker::Internet.unique.email,
         password: 'password'
       }) 

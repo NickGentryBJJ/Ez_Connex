@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import { login } from '../../store/session';
 import { NavLink } from 'react-router-dom';
 
 
@@ -33,49 +34,80 @@ function LoginFormPage() {
       });
   }
 
+  const demoUser = async (e) => {
+    e.preventDefault();
+    setErrors([]);
+    return dispatch(sessionActions.login({ email: "demo@email.io", password: "password" }))
+      .catch(async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if the server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      }); 
+    }
+
+
+  
+
   return (
-    <>
-    <h2 className="ez">EZ</h2>
-    <h2 className="connex">Connex</h2>
-    <h1>Welcome to your</h1> 
-    <h1>professional community</h1>
+    <div className='form-wrapper'>
+    
+    <h1 className='login-text'>Welcome to your <br/> professional community</h1>
 
     <form onSubmit={handleSubmit}>
       <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
+        {errors.map(error => <li className='errors' key={error}>{error}</li>)}
       </ul>
-      <label>
+      <label className='email'>
         Email <br />    
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <div className='input-email'>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            />
+          </div>
       </label>
       <br/>
-      <label>
+      <label className='password'>
         Password <br />
+        <div className='input-password'>
+
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-        />
+          />
+          </div>
       </label>
       <br/>
       <button type="submit">Sign In</button>
     </form>
     <p>-------------- or ----------------</p>
-    {/* <button  type="submit" to="/signup">New to EZ Connex? Sign Up Now!</button> */}
   
     <NavLink to="/signup"> <button>
       New to EZ Connex? Sign Up Now!
       </button>
       </NavLink>
-    
+        <br/>
+          <button
+          className='demo-button'
+          onClick={demoUser}
+            type='submit'
+          >
+            Demo Log In
+            </button>
+      <div className='img-container'></div>
 
-    </>
+    </div>
   );
 }
 

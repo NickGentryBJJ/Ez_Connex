@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { VscAccount } from 'react-icons/vsc';
+import { IoMdCreate, IoMdHome } from "react-icons/io";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -38,6 +40,8 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>{user.email}</li>
           <li>{user.firstName}</li>
+          <li><NavLink to='/'><IoMdHome /></NavLink></li>
+          <li><NavLink to='/posts'><IoMdCreate /></NavLink></li>
           <li>{user.title}</li>
           
             <button onClick={logout}>Log Out</button>
