@@ -1,12 +1,12 @@
 databases:
-  - name: EZ Connex
-    user: EZ Connex
+  - name: ezconnex 
+    user: ezconnex 
     plan: free
     region: oregon
 
 services:
   - type: web
-    name: EZ Connex
+    name: ezconnex 
     plan: free
     region: oregon
     branch: main
@@ -16,7 +16,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: EZ Connex
+          name: ezconnex 
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
