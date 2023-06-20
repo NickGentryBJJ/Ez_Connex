@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "react-icons": "^4.9.0"
-  },
   "name": "fullstack",
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
