@@ -1,3 +1,15 @@
+.nav-wrapper {
+  position: absolute;
+  width: 100vw;
+  flex-direction: row;
+  display: flex;
+  height: 10vh;
+  background-color: white;
+  justify-content: space-between;
+  top: 5px;
+    
+}
+
 button.prof {
     width: fit-content;
     padding: 5px;
@@ -49,16 +61,6 @@ button.sign-in:hover {
 }
 
 
-.nav-wrapper {
-  position: absolute;
-  width: 100vw;
-  flex-direction: row;
-  display: flex;
-  height: 10vh;
-  background-color: white;
-  justify-content: space-between;
-    
-}
 
 .nav-right {
   padding-right: 4vw;

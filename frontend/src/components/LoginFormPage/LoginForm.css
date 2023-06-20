@@ -1,4 +1,4 @@
-.form-wrapper {
+.page-wrapper {
     padding-top: 10vh;
     padding-left: 4vh;
 }
@@ -10,9 +10,10 @@
     padding: 8vh;
 }
 
+
+
 label {
     color: black;
-  
 }
 
 button:hover {
@@ -20,34 +21,56 @@ button:hover {
 }
 
 
-button {
+
+
+.sign-in-button {
     background-color: #0a66c2;
     color: white;
     border-radius: 15px;
     border-style: none;
     height: 30px;
-    margin-top: 15px;
     padding: 3px;
+    width: 200px;
     padding-left: 65px;
     padding-right: 65px;
+    margin-top: 15px;
     margin-bottom: 2vh;
+
 }
+
+.sign-up-button {
+    background-color: #0a66c2;
+    color: white;
+    border-radius: 25px;
+    border-style: none;
+    height: 30px;
+    margin-top: 15px;
+    padding: 3px;
+    padding-top: 10px;
+    width: 200px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+    padding-right: 40px;
+    margin-bottom: 4vh;
+}
+
 button:hover {
     background-color: #064380;
 
 }
-
-.demo-button:hover{
-    background-color: aliceblue;
-}
-
 .demo-button {
     background-color: white;
     color: #0a66c2;
     border-color: #0a66c2;
     border: 1px;
     border-style: solid;
+    width: 200px;
 }
+
+.demo-button:hover{
+    background-color: aliceblue;
+}
+
 div.img-container {
     background-color: black;
     height: 400px;
@@ -81,6 +104,7 @@ div.img-container {
     padding-bottom: 14px;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;
     font-size: 16px;
+    height: 5px;
 }
 .input-password>input {
     border-radius: 4px;
@@ -92,6 +116,7 @@ div.img-container {
     padding-bottom: 14px;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;
     font-size: 16px;
+    height: 5px;
 }
 
 .errors {
