@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  first_name      :string           not null
 #  last_name       :string           not null
 #  email           :string           not null
@@ -10,6 +10,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  title           :string
 #
 class User < ApplicationRecord
   has_secure_password

@@ -26,17 +26,24 @@
       email: 'demo@email.io', 
       password: 'password'
     )
-  
-    # More users
-    10.times do 
-      User.create!({
-        first_name: Faker::Internet.unique.username(specifier: 3),
-        last_name: Faker::Internet.unique.username(specifier: 3),
-        title: Faker::Internet.unique.username,
-        email: Faker::Internet.unique.email,
-        password: 'password'
-      }) 
-    end
+
+    Post.create!({
+      id: 1,
+      body: 'First Post',
+      author_id: 1
+    })
+
+    Post.create!({
+      id: 2,
+      body: 'Second Post',
+      author_id: 1
+    })
+    Post.create!({
+      id: 3,
+      body: 'Third Post',
+      author_id: 1
+    })
+    
   
     puts "Done!"
   # end

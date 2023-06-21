@@ -4,6 +4,8 @@ class ApplicationController < ActionController::API
         with: :invalid_authenticity_token
 
     before_action :snake_case_params, :attach_authenticity_token
+    # before_action :require_logged_out, only: [:login!]
+    # before_action :require_logged_in, only: [:logout!]
 
     include ActionController::RequestForgeryProtection
     protect_from_forgery with: :exception

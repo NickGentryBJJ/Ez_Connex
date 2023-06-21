@@ -2,13 +2,18 @@
 #
 # Table name: posts
 #
-#  id           :integer          not null, primary key
-#  body         :string           not null
-#  author_id_id :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id         :bigint           not null, primary key
+#  body       :string           not null
+#  author_id  :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
+    validates :body, :author_id, presence: true
     
+    
+    
+    has_many :comments,
+    dependent: :destroy
     
 end

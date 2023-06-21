@@ -22,7 +22,6 @@ export default function PostForm() {
         }
     }, [postId])
 
-    const [title, setTitle] = useState(post.title)
     const [body, setBody] = useState(post.body);
 
     const handleSubmit = (e) => {
@@ -30,8 +29,7 @@ export default function PostForm() {
 
         const newPost = {
             ...post,
-            title: title,
-            body: body 
+        body: body 
         }
         
         if (formType === 'Create Post') {
@@ -42,27 +40,20 @@ export default function PostForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>{formType}</h1>
-            <label>Title
-                <br />
-                <input 
-                    type='text'
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    />
-            </label>
-            <br/>
-            <label>Body
+        <div className='post-form-wrapper'>
+            <form onSubmit={handleSubmit}>
+                <h1>{formType}</h1>
+                <label>Body
+                    <br/>
+                    <textarea 
+                        value={body}
+                        onChange={(e) => setBody(e.target.value)}
+                        />
+                </label>
                 <br/>
-                <textarea 
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                />
-            </label>
-            <br/>
-            <button>{formType}</button>
-        </form>
+                <button>{formType}</button>
+            </form>
+        </div>
     )
     
 }

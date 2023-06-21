@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPost, fetchPost } from '../store/posts';
+import { getPost, fetchPost } from '../../store/posts';
 
 export default function PostShow() {
     const { postId } = useParams();
@@ -14,7 +14,6 @@ export default function PostShow() {
 
     return (
         <div>
-            <h1>{post.title}</h1>
             <p>{post.body}</p>
             <Link to='/'>Back to Home</Link>
         </div>

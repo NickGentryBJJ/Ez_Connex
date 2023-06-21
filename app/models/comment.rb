@@ -2,12 +2,16 @@
 #
 # Table name: comments
 #
-#  id         :integer          not null, primary key
-#  user_id_id :integer
-#  post_id_id :integer
+#  id         :bigint           not null, primary key
+#  user       :bigint
+#  post       :bigint
 #  body       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 class Comment < ApplicationRecord
+    validates :body, presence: true
+
+    belongs_to :post
+    belongs_to :user
 end

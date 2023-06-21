@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PostForm  from './PostForm';
-import PostIndexItem from './PostIndexItem';
-import { getPosts, fetchPosts } from '../store/posts';
+import PostIndexItem from '../PostIndexItem/PostIndexItem';
+import { getPosts, fetchPosts } from '../../store/posts';
 
 export default function PostIndex() {
     const posts = useSelector(getPosts);
@@ -10,16 +9,16 @@ export default function PostIndex() {
 
     useEffect(() => {
         dispatch(fetchPosts())
-    }, [])
+    }, [dispatch])
 
     return (
         <div>
             <ul>
                 {posts.map(post => (
-                    <PostIndexItem post={post} />
+                    <PostIndexItem post={post.body} />
                 ))}
             </ul>
-            <PostForm />
         </div>
     )
 }
+

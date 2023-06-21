@@ -40,9 +40,9 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>{user.email}</li>
           <li>{user.firstName}</li>
+          <li>{user.title}</li>
           <li><NavLink to='/'><IoMdHome /></NavLink></li>
           <li><NavLink to='/posts'><IoMdCreate /></NavLink></li>
-          <li>{user.title}</li>
           
             <button onClick={logout}>Log Out</button>
         </ul>
