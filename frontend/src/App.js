@@ -21,11 +21,11 @@ function App() {
       <Route path="/feed">
           <PostIndex />
       </Route>
-      <Route path = "/">
-        <PostIndex />
-      </Route>
       <Route path = "/posts">
         <PostForm />
+      </Route>
+      <Route path = "/">
+        <PostIndex />
       </Route>
     </Switch>
     </>

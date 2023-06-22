@@ -1,3 +1,4 @@
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import csrfFetch from './csrf'
 export const SET_SESSION = 'session/SET_SESSION';
 export const REMOVE_SESSION = 'session/REMOVE_SESSION';

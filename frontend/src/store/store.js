@@ -4,7 +4,10 @@ import session from './session';
 import postReducer from './posts'
 
 
-const rootReducer = combineReducers({ session, postReducer });
+const rootReducer = combineReducers({ 
+    session, 
+    posts: postReducer 
+});
 let enhancer;
 
     if (process.env.NODE_ENV === 'production') {

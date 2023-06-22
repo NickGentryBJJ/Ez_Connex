@@ -14,6 +14,7 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save 
       render json: @post
+      
     else
       render json: {errors:@post.errors.full_messages}, status: 422
     end

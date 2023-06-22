@@ -99,7 +99,7 @@ function LoginFormPage() {
           >
             Demo Log In
           </button>
-        <div className='img-container'></div>
+        <div className='img-container' src=""></div>
     </div>
     );
 }

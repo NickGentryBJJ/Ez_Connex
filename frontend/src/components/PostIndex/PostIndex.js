@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PostIndexItem from '../PostIndexItem/PostIndexItem';
+import  PostIndexItem  from '../PostIndexItem/PostIndexItem';
 import { getPosts, fetchPosts } from '../../store/posts';
+import './PostIndex.css'
+import { NavLink, Redirect } from 'react-router-dom/cjs/react-router-dom';
 
 export default function PostIndex() {
+    
     const posts = useSelector(getPosts);
     const dispatch = useDispatch();
 
@@ -11,14 +14,26 @@ export default function PostIndex() {
         dispatch(fetchPosts())
     }, [dispatch])
 
+    const sessionUser = useSelector(state => state.session.user)
+    if (!sessionUser) return <Redirect to='/login' />
+
     return (
-        <div>
-            <ul>
-                {posts.map(post => (
-                    <PostIndexItem post={post.body} />
-                ))}
-            </ul>
-        </div>
+        <>
+            <div className='index-wrapper'>
+                <ul>
+                    <div className='create-button-wrapper'>
+                        <NavLink to="/posts">
+                            <button className='create-post-button'>
+                                Start a Post
+                            </button>
+                        </NavLink>
+                    </div>
+                        {posts.map(post => (
+                            <PostIndexItem post={post} />
+                        ))}
+                </ul>
+            </div>
+        </>
     )
 }
 

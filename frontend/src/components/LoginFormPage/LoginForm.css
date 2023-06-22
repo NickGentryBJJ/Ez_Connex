@@ -54,10 +54,6 @@ button:hover {
     margin-bottom: 4vh;
 }
 
-button:hover {
-    background-color: #064380;
-
-}
 .demo-button {
     background-color: white;
     color: #0a66c2;

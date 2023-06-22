@@ -1,0 +1,8 @@
+.post-wrapper {
+    border: 1px solid;
+    border-color: rgb(166, 166, 166);
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 2vw;
+    border-radius: 8px;
+}

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPost, fetchPost, createPost, updatePost} from '../../store/posts'
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import './PostForm.css'
 
 export default function PostForm() {
     const { postId } = useParams();
@@ -11,7 +13,6 @@ export default function PostForm() {
 
     if (formType === 'Create Post') {
         post = {
-            title: '',
             body: ''
         }
     }
@@ -29,7 +30,7 @@ export default function PostForm() {
 
         const newPost = {
             ...post,
-        body: body 
+            body: body 
         }
         
         if (formType === 'Create Post') {
@@ -39,19 +40,17 @@ export default function PostForm() {
         }
     }
 
+    const sessionUser = useSelector(state => state.session.user)
+    if (!sessionUser) return <Redirect to='/login' />
+
+
     return (
         <div className='post-form-wrapper'>
             <form onSubmit={handleSubmit}>
                 <h1>{formType}</h1>
-                <label>Body
-                    <br/>
-                    <textarea 
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                        />
-                </label>
+               <input type='text'/>
                 <br/>
-                <button>{formType}</button>
+                <button type='submit'>{formType}</button>
             </form>
         </div>
     )

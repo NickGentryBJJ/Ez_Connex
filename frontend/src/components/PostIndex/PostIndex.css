@@ -1,0 +1,39 @@
+.index-wrapper {
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-post-button {
+    color: grey;
+    font-weight: 50;
+    width: 500px;
+    margin: 0.4rem 0;
+    font-size: 1rem;
+    max-width: none;
+    justify-content: left;
+    border: 1px solid;
+    border-radius: 35px!important;
+    padding-left: 1.6rem!important;
+    height: 40px;
+    display: -webkit-inline-box;
+    background-color: white;
+}
+
+.create-button-wrapper {
+    background-color: white;
+    margin: 0 0 0.8rem;
+    border-radius: 8px;
+    color: var(--color-text-low-emphasis);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.posts-wrapper {
+    background-color: white;
+    padding: 10px;
+}
+
+

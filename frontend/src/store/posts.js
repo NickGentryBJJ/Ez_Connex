@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf";
+
 export const RECEIVE_POST = 'posts/RECEIVE_POST';
 export const RECEIVE_POSTS = 'posts/RECEIVE_POSTS';
 export const REMOVE_POST = 'posts/REMOVE_POST';
@@ -18,11 +20,11 @@ const removePost = postId => ({
 });
 
 export const getPost = postId => state => {
-    return state?.posts ? state.posts[postId] : null;
+    return state.posts ? state.posts[postId] : null;
 }
 
 export const getPosts = state => {
-    return state?.posts ? Object.values(state.posts) : [];
+    return state.posts ? Object.values(state.posts) : [];
 }
 
 
@@ -44,7 +46,11 @@ export const fetchPost = postId => async (dispatch) => {
 };
 
 export const createPost = post => async (dispatch) => {
-    const response = await fetch(`/api/posts/`, {
+    const post = {
+        body: "",
+        author_id: 1
+    };
+    const response = await csrfFetch(`/api/posts/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -59,7 +65,7 @@ export const createPost = post => async (dispatch) => {
 };
 
 export const updatePost = post => async (dispatch) => {
-    const response = await fetch(`/api/posts/${post.id}`, {
+    const response = await csrfFetch(`/api/posts/${post.id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -74,7 +80,7 @@ export const updatePost = post => async (dispatch) => {
 };
 
 export const deletePost = postId => async (dispatch) => {
-    const response = await fetch (`/api/posts/${postId}`, {
+    const response = await csrfFetch (`/api/posts/${postId}`, {
         method: 'DELETE'
     });
 
@@ -86,17 +92,20 @@ export const deletePost = postId => async (dispatch) => {
 
 
 const postsReducer = (state = {}, action) => {
+    Object.freeze(state)
+
+    const nextState = Object.assign({}, state)
+
     switch (action.type) {
         case RECEIVE_POSTS:
             return {...action.posts};
         case RECEIVE_POST:
             return {...state, [action.post.id]: action.post };
         case REMOVE_POST:
-            const newState = {...state};
-            delete newState[action.postId];
-            return newState;
+            delete nextState[action.postId];
+            return nextState;
         default:
-            return state;
+            return nextState;
     }
 }
 
