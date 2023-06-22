@@ -46,10 +46,7 @@ export const fetchPost = postId => async (dispatch) => {
 };
 
 export const createPost = post => async (dispatch) => {
-    const post = {
-        body: 'what up',
-        author_id: 1
-    };
+    
     const response = await csrfFetch(`/api/posts/`, {
         method: 'POST',
         headers: {
@@ -87,8 +84,9 @@ export const deletePost = postId => async (dispatch) => {
     if (response.ok) {
         dispatch(removePost(postId));
     }
-    
 };
+
+
 
 
 const postsReducer = (state = {}, action) => {

@@ -5,8 +5,9 @@ import { getPosts, fetchPosts } from '../../store/posts';
 import './PostIndex.css'
 import { NavLink, Redirect } from 'react-router-dom/cjs/react-router-dom';
 
+
+
 export default function PostIndex() {
-    
     const posts = useSelector(getPosts);
     const dispatch = useDispatch();
 
@@ -22,6 +23,7 @@ export default function PostIndex() {
             <div className='index-wrapper'>
                 <ul>
                     <div className='create-button-wrapper'>
+                        <img src={sessionUser.photo}/>
                         <NavLink to="/posts">
                             <button className='create-post-button'>
                                 Start a Post
@@ -29,7 +31,7 @@ export default function PostIndex() {
                         </NavLink>
                     </div>
                         {posts.map(post => (
-                            <PostIndexItem post={post} />
+                            <PostIndexItem post={post} key={post.id}/>
                         ))}
                 </ul>
             </div>

@@ -30,11 +30,13 @@ export default function PostForm() {
 
         const newPost = {
             ...post,
-            body: body 
+            body: body,
+            author_id: sessionUser.id 
         }
         
         if (formType === 'Create Post') {
             dispatch(createPost(newPost))
+            return <Redirect to='/api/' />
         } else {
             dispatch(updatePost(newPost))
         }
@@ -48,7 +50,7 @@ export default function PostForm() {
         <div className='post-form-wrapper'>
             <form onSubmit={handleSubmit}>
                 <h1>{formType}</h1>
-               <input type='text'/>
+                <input type='text' onChange={e => setBody(e.target.value)} value={body}/>
                 <br/>
                 <button type='submit'>{formType}</button>
             </form>

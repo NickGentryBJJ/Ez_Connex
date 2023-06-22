@@ -87,7 +87,7 @@ function LoginFormPage() {
             <br/>
             <button className='sign-in-button' type="submit">Sign In</button>
           </form>
-          <p>-------------- or ----------------</p>
+          <p>---------------- or -----------------</p>
           <NavLink to="/signup"><button className='sign-up-button'>
             New to EZ Connex? Sign Up Now!
             </button>
