@@ -19,7 +19,7 @@
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
-    User.create!(
+    demo_user = User.create!(
       first_name: 'Demo',
       last_name: 'lition', 
       title: 'Wrecking Ball',
@@ -27,18 +27,19 @@
       password: 'password'
     )
 
-    Post.create!({
+    post1 = Post.create!({
       id: 1,
       body: 'First Post',
       author_id: 1
     })
 
-    Post.create!({
+    post2 = Post.create!({
       id: 2,
       body: 'Second Post',
       author_id: 1
     })
-    Post.create!({
+
+    post3 = Post.create!({
       id: 3,
       body: 'Third Post',
       author_id: 1

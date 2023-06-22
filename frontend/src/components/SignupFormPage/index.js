@@ -4,6 +4,8 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
+
+
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -14,12 +16,18 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  
+  const [photoFile, setPhotoFile] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
 
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    if (photoFile) {
+      formData.append('user[photo]', photoFile);
+    }
+    
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, firstName, lastName, title, password }))
@@ -39,86 +47,100 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const handleFile = ({ currentTarget }) => {
+    const file = currentTarget.files[0];
+    setPhotoFile(file);
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => setPhotoUrl(fileReader.result);
+      } else setPhotoUrl(null);
+  }
+
+  let preview = null;
+  if (photoUrl) preview = <img src={photoUrl} alt="" />;
+
   return (
-    <>
+  <>
     <div className="sign-up-wrapper">
-
-    <h2 className="make">Make the most of your professional life</h2>
-    <div className="sign-up-form">
-
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map(error => <li className="errors" key={error}>{error}</li>)}
-      </ul>
-      <label>
-        Email<br/>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
+      <h2 className="make">Make the most of your professional life</h2>
+        <div className="sign-up-form">
+          <form onSubmit={handleSubmit}>    
+          <ul>
+            {errors.map(error => <li className="errors" key={error}>{error}</li>)}
+          </ul>
+          <label>
+            Email<br/>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
-      </label>
-      <br/>
-      <label>
-        First Name<br/>
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
+          </label>
+          <br/>
+          <label>
+            First Name<br/>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </label>
+          <br/>
+          <label>
+            Last Name<br/> 
+            <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            />
+          </label>
+          <br/>
+          <label>
+            Title<br/> 
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
           />
-      </label>
-      <br/>
-      <label>
-       Last Name<br/> 
-        <input
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
+          </label>
+          <br/>
+          <label>
+            Password<br/>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
-      </label>
-      <br/>
-      <label>
-       Title<br/> 
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-          />
-      </label>
-      <br/>
-
-      <label>
-        Password<br/>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <br/>
-      <label>
-        Confirm Password<br />
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-          />
-      </label>
-      <br/>
-      <div className="agree">
-      <p>By clicking Agree & Join, you agree to the EZConnex User Agreement, Privacy Policy, and Cookie Policy.</p>
-      </div>
-      <button type="submit">Agree & Join</button>
-    </form>
-          </div>
-          </div>
-          </>
+          </label>
+          <br/>
+          <label>
+            Confirm Password<br />
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            />
+          </label>
+          <br/>
+          <input type="file" onChange={handleFile} />
+          <h3>Image preview</h3>
+          {preview}
+          <br/>
+            <div className="agree">
+              <p>By clicking Agree & Join, you agree to the EZConnex User Agreement, Privacy Policy, and Cookie Policy.</p>
+            </div>
+          <button type="submit" className="agree-button">Agree & Join</button>
+          </form>
+        </div>
+    </div>
+  </>
   );
 }
 

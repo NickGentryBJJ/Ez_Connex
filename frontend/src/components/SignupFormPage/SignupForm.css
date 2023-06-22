@@ -29,7 +29,7 @@ input {
     font-size: 16px;
 }
 .sign-up-form {
-    background-color: #f6f8fa;
+    background-color: white;
     padding-left: 24px !important;
     padding-right: 24px !important;
     max-width: 400px;
@@ -52,12 +52,22 @@ input {
     align-items: center;
 }
 
-button {
-    border-color: gray;
+.agree-button {
+    background-color: #0a66c2;
+    color: white;
     border-radius: 15px;
+    border-style: none;
     height: 30px;
-    padding-left: 49px;
-    padding-right: 49px;
+    padding: 3px;
+    width: 200px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: 15px;
+    margin-bottom: 2vh;
+}
+
+.agree-button:hover {
+    background-color: #004182;
 }
 
 div.agree {

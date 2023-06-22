@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.create-post-button:hover {
+    background-color: rgb(234, 234, 234);
+}
+
 .create-post-button {
     color: grey;
     font-weight: 50;

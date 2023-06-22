@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..255}, allow_nil: true
   before_validation :ensure_session_token
 
-
+  has_one :photo
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

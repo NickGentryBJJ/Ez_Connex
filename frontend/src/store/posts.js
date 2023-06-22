@@ -47,7 +47,7 @@ export const fetchPost = postId => async (dispatch) => {
 
 export const createPost = post => async (dispatch) => {
     const post = {
-        body: "",
+        body: 'what up',
         author_id: 1
     };
     const response = await csrfFetch(`/api/posts/`, {
