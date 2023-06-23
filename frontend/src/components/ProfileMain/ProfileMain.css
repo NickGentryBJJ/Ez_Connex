@@ -1,0 +1,19 @@
+.profile-main-wrapper{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    
+
+}
+.profile-main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 2vw;
+    height: 30%;
+}
+
+.prof-pic-main {
+    height: 5rem;
+    width: 6rem;
+}

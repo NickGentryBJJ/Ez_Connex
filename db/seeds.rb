@@ -25,24 +25,27 @@
       title: 'Wrecking Ball',
       email: 'demo@email.io', 
       password: 'password'
+      
     )
+
+    demo_user.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/wreckingball.png'), filename: 'wreckingball.png')
 
     post1 = Post.create!({
       id: 1,
       body: 'First Post',
-      author_id: 1
+      user_id: 1
     })
 
     post2 = Post.create!({
       id: 2,
       body: 'Second Post',
-      author_id: 1
+      user_id: 1
     })
 
     post3 = Post.create!({
       id: 3,
       body: 'Third Post',
-      author_id: 1
+      user_id: 1
     })
     
   

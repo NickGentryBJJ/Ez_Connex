@@ -4,7 +4,7 @@ import  PostIndexItem  from '../PostIndexItem/PostIndexItem';
 import { getPosts, fetchPosts } from '../../store/posts';
 import './PostIndex.css'
 import { NavLink, Redirect } from 'react-router-dom/cjs/react-router-dom';
-
+import ProfileMain from '../ProfileMain/ProfileMain';
 
 
 export default function PostIndex() {
@@ -19,11 +19,14 @@ export default function PostIndex() {
     if (!sessionUser) return <Redirect to='/login' />
 
     return (
-        <>
+        <>  
             <div className='index-wrapper'>
-                <ul>
+                <ProfileMain/>
+                <ul className='index-information'>
                     <div className='create-button-wrapper'>
-                        <img src={sessionUser.photo}/>
+                        <div className='profile-pic-wrapper'>
+                            <img className='prof-pic' src={sessionUser.photo}/>
+                        </div>
                         <NavLink to="/posts">
                             <button className='create-post-button'>
                                 Start a Post

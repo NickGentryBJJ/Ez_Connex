@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
 
   def index 
     @posts = Post.all 
-    render json: @posts
+    render :index
   end
 
   def show
@@ -11,10 +11,10 @@ class Api::PostsController < ApplicationController
   end
 
   def create
+    @posts = Post.all
     @post = Post.new(post_params)
     if @post.save 
-      render json: @post
-      
+      render :index
     else
       render json: {errors:@post.errors.full_messages}, status: 422
     end
@@ -30,7 +30,7 @@ class Api::PostsController < ApplicationController
 
 
   def post_params
-    params.require(:post).permit(:body, :author_id)
+    params.require(:post).permit(:body, :user_id)
   end
 
 end

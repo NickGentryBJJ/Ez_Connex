@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { VscAccount } from 'react-icons/vsc';
 import { IoMdCreate, IoMdHome } from "react-icons/io";
@@ -8,6 +8,8 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const sessionUser = useSelector(state => state.session.user)
+
   
   const openMenu = () => {
     if (showMenu) return;
@@ -34,7 +36,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button className="prof" onClick={openMenu}>
-        <VscAccount />
+        <img className='nav-profile-pic' src={sessionUser.photo}/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
