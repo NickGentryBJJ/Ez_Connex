@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch} from 'react-redux';
-import { BsThreeDots } from "react-icons/bs";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { deletePost } from '../../store/posts';
-
+import './PostDropDown.css'
 
 function PostDropDown({ post }) {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function PostDropDown({ post }) {
     return (
         <>
         <button className="post-mod" onClick={openMenu}>
-            <BsThreeDots/>
+            <BiDotsHorizontalRounded/>
         </button>
         {showMenu && (
             <ul className="post-mod-dropdown">

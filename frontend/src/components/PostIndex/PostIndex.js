@@ -5,10 +5,11 @@ import { getPosts, fetchPosts } from '../../store/posts';
 import './PostIndex.css'
 import { NavLink, Redirect } from 'react-router-dom/cjs/react-router-dom';
 import ProfileMain from '../ProfileMain/ProfileMain';
+import AboutEz from '../AboutEz/AboutEz';
 
 
 export default function PostIndex() {
-    const posts = useSelector(getPosts);
+    let posts = useSelector(getPosts);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -35,8 +36,9 @@ export default function PostIndex() {
                     </div>
                         {posts.map(post => (
                             <PostIndexItem post={post} key={post.id}/>
-                        ))}
+                            ))}
                 </ul>
+                    <AboutEz/>
             </div>
         </>
     )

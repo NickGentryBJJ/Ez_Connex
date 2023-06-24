@@ -1,19 +1,25 @@
 .profile-main-wrapper{
-    height: 100%;
-    width: 20%;
+    height: 80%;
+    width: 17%;
+    margin-right: 6%;
+    margin-left: 4%;
     display: flex;
-    
+    background-color: white;
+    border: 1px solid;
+    border-color: rgb(166, 166, 166);
+    border-radius: 8px;
+
 
 }
 .profile-main-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: 2vw;
-    height: 30%;
+    padding: 4vw;
+    align-items: center;
 }
 
 .prof-pic-main {
-    height: 5rem;
-    width: 6rem;
+    height: 4rem;
+    width: 5rem;
 }

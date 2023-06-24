@@ -6,3 +6,10 @@
     margin-bottom: 2vw;
     border-radius: 8px;
 }
+
+.three-dots {
+    position: relative;
+    left: 91%;
+    cursor: pointer;
+    width: 5px;
+}

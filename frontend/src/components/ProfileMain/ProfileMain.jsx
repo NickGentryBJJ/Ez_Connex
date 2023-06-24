@@ -9,9 +9,8 @@ const ProfileMain = () => {
             <ul className="profile-main-container">
                 <li><img className="prof-pic-main" src={sessionUser.photo}/></li>
                 <li>{sessionUser.firstName}</li>
-                <li>{sessionUser.lastName}</li>
                 <li>{sessionUser.title}</li>
-                <li>Striving for destruction</li>
+                <li>Striving for destruction every day</li>
             </ul>
         </div>
     )
