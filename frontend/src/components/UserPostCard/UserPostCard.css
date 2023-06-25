@@ -1,0 +1,20 @@
+.user-card-wrapper {
+ display: flex;
+}
+
+.card-user-photo {
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.card-user-name {
+    margin: 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.card-user-title {
+    padding-top: 2%;
+    font-size: 13px;
+    color: rgb(149, 149, 149);
+}

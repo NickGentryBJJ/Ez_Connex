@@ -2,18 +2,20 @@ import React from 'react';
 import './PostIndexItem.css'
 import PostDropDown from '../PostDropDown/PostDropDown';
 import { useSelector } from 'react-redux';
+import UserPostCard from '../UserPostCard/UserPostCard';
 
 
 
 export default function PostIndexItem({post}) {
-    if (post.photo) {
+    const sessionUser = useSelector(state => state.session.user)
+    if (post.photo && sessionUser.id === post.userId) {
         return (
         <div className='photo-post-wrapper'>
             <div className='photo-post-container'>
                 <ul className='photo-post-info-container'>
-                    <li className='photo-post-user-id'>{post.userId}</li>
+                <li><UserPostCard post={post}/></li>
                     <li className='photo-post-body'>{post.body}</li>
-                    <li><img className='post-photo' src={`${post.photo}`}/></li>
+                    <li className='li-post-photo'><img className='post-photo' src={`${post.photo}`}/></li>
                 </ul>
             </div>
                 <div className='photo-three-dots'>
@@ -21,11 +23,11 @@ export default function PostIndexItem({post}) {
                 </div>
         </div>
         )
-    } else {
+    } else if (!post.photo && sessionUser.id === post.userId) {
         return (
             <div className='post-wrapper'>
                 <ul className='post-container'>
-                <li className='post-user-id'>{post.userId}</li>
+                <li><UserPostCard post={post}/></li>
                 <li className='post-body'>{post.body}</li>
             </ul>
                 <div className='three-dots'>
@@ -34,5 +36,26 @@ export default function PostIndexItem({post}) {
             </div>
             
         )
-    }
+    } else if (post.photo && sessionUser.id !== post.userId) {
+        return (
+            <div className='photo-post-wrapper'>
+                <div className='photo-post-container'>
+                    <ul className='photo-post-info-container'>
+                    <li><UserPostCard post={post}/></li>
+                    <li className='li-post-photo'><img className='post-photo' src={`${post.photo}`}/></li>
+                    </ul>
+                </div>
+            </div>
+            )
+    } else if (!post.photo && sessionUser.id !== post.userId) {
+        return (
+            <div className='post-wrapper'>
+                <ul className='post-container'>
+                <li><UserPostCard post={post}/></li>
+                <li className='post-body'>{post.body}</li>
+            </ul>
+            </div>
+            
+        )
+    }   
 }

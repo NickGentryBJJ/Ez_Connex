@@ -9,11 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
-    validates :body, :user_id, presence: true
-    
+    validates :body, presence: true
+
     belongs_to :user
     has_one_attached :photo
-    
-
-    
 end

@@ -17,6 +17,7 @@
 
 .prof-pic {
     height: 2.5rem;
+    border-radius: 50%;
 }
 
 .create-post-button:hover {
