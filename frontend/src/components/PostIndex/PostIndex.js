@@ -9,7 +9,7 @@ import AboutEz from '../AboutEz/AboutEz';
 
 
 export default function PostIndex() {
-    let posts = useSelector(getPosts);
+let posts = useSelector(getPosts);
     const dispatch = useDispatch();
 
     useEffect(() => {

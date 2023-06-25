@@ -1,15 +1,83 @@
 .post-wrapper {
-    border: 1px solid;
-    border-color: rgb(166, 166, 166);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgb(223, 223, 223);
     background-color: white;
     padding: 10px;
     margin-bottom: 2vw;
     border-radius: 8px;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.post-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4vw;
+    align-items: center;
+}
+
+.post-body {
+    min-width: 50%;
+    max-width: 50%;
+}
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .three-dots {
     position: relative;
-    left: 91%;
+    
     cursor: pointer;
     width: 5px;
 }
+.photo-post-wrapper {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgb(223, 223, 223);
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 2vw;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+
+.photo-post-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.photo-post-body {
+    padding-top: 3%;
+    max-width: 50%;
+    position: relative;
+    left: 28%;
+    padding-bottom: 5%;
+}
+
+
+.photo-three-dots {
+    position: relative;
+    cursor: pointer;
+    width: 5px;
+    left: -5%;
+}
+
+
+.post-photo {
+    width: 80%;
+}
+

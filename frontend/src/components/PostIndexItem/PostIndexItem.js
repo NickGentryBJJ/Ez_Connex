@@ -6,15 +6,33 @@ import { useSelector } from 'react-redux';
 
 
 export default function PostIndexItem({post}) {
-    return (
-        <ul className='post-wrapper'>
-            <li>{post.userId}</li>
-            <li>{post.body}</li>
-            <li>{post.photo}</li>
-            <div className='three-dots'>
-                <PostDropDown post={post}/>
+    if (post.photo) {
+        return (
+        <div className='photo-post-wrapper'>
+            <div className='photo-post-container'>
+                <ul className='photo-post-info-container'>
+                    <li className='photo-post-user-id'>{post.userId}</li>
+                    <li className='photo-post-body'>{post.body}</li>
+                    <li><img className='post-photo' src={`${post.photo}`}/></li>
+                </ul>
             </div>
-
-        </ul>
-    )
+                <div className='photo-three-dots'>
+                    <PostDropDown post={post}/>
+                </div>
+        </div>
+        )
+    } else {
+        return (
+            <div className='post-wrapper'>
+                <ul className='post-container'>
+                <li className='post-user-id'>{post.userId}</li>
+                <li className='post-body'>{post.body}</li>
+            </ul>
+                <div className='three-dots'>
+                    <PostDropDown post={post}/>
+                </div>
+            </div>
+            
+        )
+    }
 }

@@ -1,4 +1,3 @@
-import React, { useState } from "react"
 import './AboutEz.css'
 
 
@@ -13,7 +12,7 @@ const AboutEz = () => {
                     Ez Connex is a professional social network used to find work or make connections to help your work life improve!
                 </div>
             </div>
-            <div className="languages-used-container">
+            <div className="languages-container">
                 <div className="languages-row">
                     <span className="language">Ruby</span>
                     <span className="language">Rails</span>
@@ -29,7 +28,7 @@ const AboutEz = () => {
                     <span className="language">CSS</span>
                 </div>
                 <div className="languages-row">Hosted using Render</div>
-                <div className="text-logo-container">
+                <div className="year-container">
                     <span className="ezconnex-year">Ez Connex Corporation © 2023</span>
                 </div>
             </div>

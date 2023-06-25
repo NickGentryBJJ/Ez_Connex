@@ -9,13 +9,11 @@
     max-height: fit-content;
     padding: 13px;
     margin-left: 40px;
+    margin-right: 20px;
     
 }
 
-.app-info-container {
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-}
+
 
 .app-info-container.show-all {
     max-height: none;
@@ -37,7 +35,7 @@
 }
 
 
-.languages-used-container {
+.languages-container {
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -58,7 +56,7 @@
     margin-right: 8px;
 }
 
-.text-logo-container {
+.year-container {
     margin-top: 7px;
     font-size: 14px;
 }

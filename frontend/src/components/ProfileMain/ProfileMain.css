@@ -5,9 +5,9 @@
     margin-left: 4%;
     display: flex;
     background-color: white;
-    border: 1px solid;
-    border-color: rgb(166, 166, 166);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    border: 1px solid rgb(223, 223, 223);
 
 
 }
