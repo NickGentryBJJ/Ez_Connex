@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux'
 export default function UserPostCard({post}) {
     
     const sessionUser = useSelector(state => state.session.user)
-
+    if (!post.user) return null;
+    console.log(post.user, post)
     if (!post.photo && sessionUser.id === post.userId) {
         return (
         <div className='user-card-wrapper'>

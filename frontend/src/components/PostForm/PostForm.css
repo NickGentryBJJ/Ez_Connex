@@ -1,4 +1,4 @@
-.newPost-container {
+.create-post-container {
     margin-top: 17%;
     height: 400px;
     width: 560px;
@@ -11,6 +11,22 @@
     transform: translate(-50%, -95%);
 }
 
+.post-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.post-title {
+    padding: 20px;
+    padding-bottom: 15px;
+    font-size: 21px;
+    display: flex;
+    color: rgb(62, 62, 62);
+    font-weight: 300;
+}
+
 .create-post-user-container {
     padding-left: 15px;
     padding-right: 15px;
@@ -20,27 +36,27 @@
     padding-top: 18px;
 }
 
-.profile-image {
+.create-post-profile-image {
     width: 20%;
     border-radius: 50%;
 }
 
-.newPost-firstname {
+.create-post-firstname {
     font-weight: 500;
     font-size: 17px;
     margin-left: 5px;
 }
 
-.newPost-form {
+.create-post-form {
     padding: 20px;
 }
 
-.newPost-text:focus {
+.create-post-text:focus {
     outline: none;
 }
 
 
-.newPost-text {
+.create-post-text {
     display: flex;
     justify-content: center;
     width: 475px;
@@ -68,4 +84,6 @@
 .post-button:hover {
     background-color: #015b90;
 }
+
+
 

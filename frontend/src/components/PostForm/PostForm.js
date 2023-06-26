@@ -9,10 +9,14 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 export default function PostForm() {
+    
     const history = useHistory();
     const { postId } = useParams();
-    const formType = postId ? 'Update Post' : 'Create Post';
     let post = useSelector(getPost(postId));
+    console.log(postId)
+    const formType = postId ? 'Update Post' : 'Create Post';
+    const buttonText = postId ? "Edit" : "Post"
+
     const dispatch = useDispatch();
     const [photoFile, setPhotoFile] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
@@ -27,7 +31,7 @@ export default function PostForm() {
         if (formType === 'Update Post'){
             dispatch(fetchPost(postId))
         }
-    })
+    }, [])
 
     const [body, setBody] = useState(post.body);
 
@@ -45,6 +49,7 @@ export default function PostForm() {
             history.push('/');
             
         } else {
+        
             dispatch(updatePost(newPost));
             history.push('/');
         }
@@ -52,37 +57,37 @@ export default function PostForm() {
     }
 
     const handleFile = ({ currentTarget }) => {
-        // const url = currentTarget;
-        // if (url) {
-        //     setPhotoUrl(url);
-        // }
         const file = currentTarget.files[0];
         setPhotoFile(file);
         if (file) {
-          const fileReader = new FileReader();
-          fileReader.readAsDataURL(file);
-          fileReader.onload = () => setPhotoUrl(fileReader.result);
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => setPhotoUrl(fileReader.result);
         }  else setPhotoUrl(null);
-      }
+    }
 
-
+    let preview = null;
+    if (photoUrl) preview = <img  className="previewimg" src={photoUrl} alt="" />
     const sessionUser = useSelector(state => state.session.user)
     if (!sessionUser) return <Redirect to='/login' />
 
 
     return (
-        <div className='newPost-container'>
-            <div className="create-post-user-container">
-                <img className="profile-image" src={sessionUser.photo}></img>
-                <span className="newPost-firstname">{sessionUser.first_name}</span>
+        <div className='create-post-container'>
+            <div className='post-title-container'>
+                <div className='post-title'>{formType}</div>
             </div>
-            <form className="newPost-form">
+            <div className="create-post-user-container">
+                <img className="create-post-profile-image" src={sessionUser.photo}></img>
+                <span className="create-post-firstname">{sessionUser.first_name}</span>
+            </div>
+            <form className="create-post-form">
                 <div>
                     <div className="post-label-container">
-                        <label className='newPost-label'>
+                        <label className='create-post-label'>
                             <textarea
                                 placeholder='What do you want to talk about?'
-                                className='newPost-text'
+                                className='create-post-text'
                                 type='textarea'
                                 value={body}
                                 onInput={(e) => {
@@ -92,7 +97,7 @@ export default function PostForm() {
                                 required
                             ></textarea>
                         </label>
-                        <button className='post-button' type='submit' onClick={handleSubmit}>Post</button>
+                        <button className='post-button' type='submit' onClick={handleSubmit}>{buttonText}</button>
                     </div>
                 </div>
             </form >

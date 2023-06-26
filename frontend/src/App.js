@@ -13,7 +13,9 @@ function App() {
     <>
     <Navigation />
     <Switch>
-      
+      <Route path='/posts/:postId'>
+        <PostForm/>
+      </Route>
       <Route path="/login">
         <LoginFormPage />
       </Route>
@@ -26,6 +28,7 @@ function App() {
       <Route path = "/posts">
         <PostForm />
       </Route>
+      
       <Route path = "/">
         <PostIndex />
       </Route>
