@@ -1,9 +1,13 @@
 .user-card-wrapper {
- display: flex;
+    display: flex;
+    padding-bottom: 10px;
+}
+.user-card-container {
+    padding-left: 10px;
 }
 
 .card-user-photo {
-    width: 4rem;
+    width: 3rem;
     border-radius: 50%;
 }
 
@@ -17,4 +21,38 @@
     padding-top: 2%;
     font-size: 13px;
     color: rgb(149, 149, 149);
+}
+.drop-down-dots {
+    position: relative;
+    left: 102%;
+}
+
+
+.photo-user-card-wrapper {
+ display: flex;
+}
+.photo-user-card-container {
+    padding-left: 10px;
+}
+
+.photo-card-user-photo {
+    width: 3rem;
+    border-radius: 50%;
+}
+
+.photo-card-user-name {
+    margin: 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.photo-card-user-title {
+    padding-top: 2%;
+    font-size: 13px;
+    color: rgb(149, 149, 149);
+}
+
+.photo-drop-down-dots {
+    position: relative;
+    left: 56%;
 }

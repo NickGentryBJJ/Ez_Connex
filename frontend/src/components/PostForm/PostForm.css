@@ -1,7 +1,71 @@
-.post-form-wrapper {
-    padding-top: 20vh;
-    padding-left: 4vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.newPost-container {
+    margin-top: 17%;
+    height: 400px;
+    width: 560px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -95%);
 }
+
+.create-post-user-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 18px;
+}
+
+.profile-image {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.newPost-firstname {
+    font-weight: 500;
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+.newPost-form {
+    padding: 20px;
+}
+
+.newPost-text:focus {
+    outline: none;
+}
+
+
+.newPost-text {
+    display: flex;
+    justify-content: center;
+    width: 475px;
+    height: 150px;
+    resize: none;
+    border: none;
+    font-family: system-ui, -apple-system, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+
+
+.post-button {
+    border: none;
+    color: white;
+    background-color: #0b66c2;
+    width: 67px;
+    height: 33px;
+    border-radius: 18px;
+    font-size: 15.8px;
+    cursor: pointer;
+}
+
+.post-button:hover {
+    background-color: #015b90;
+}
+

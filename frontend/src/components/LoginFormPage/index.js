@@ -36,7 +36,7 @@ function LoginFormPage() {
   const demoUser = async (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ email: "demo@email.io", password: "password" }))
+    return dispatch(sessionActions.login({ email: "onionbro@catarina.com", password: "password" }))
       .catch(async (res) => {
         let data;
         try {

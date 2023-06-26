@@ -24,7 +24,6 @@ export default function PostForm() {
     }
 
     useEffect(() => {
-        debugger
         if (formType === 'Update Post'){
             dispatch(fetchPost(postId))
         }
@@ -53,13 +52,17 @@ export default function PostForm() {
     }
 
     const handleFile = ({ currentTarget }) => {
+        // const url = currentTarget;
+        // if (url) {
+        //     setPhotoUrl(url);
+        // }
         const file = currentTarget.files[0];
         setPhotoFile(file);
         if (file) {
           const fileReader = new FileReader();
           fileReader.readAsDataURL(file);
           fileReader.onload = () => setPhotoUrl(fileReader.result);
-          } else setPhotoUrl(null);
+        }  else setPhotoUrl(null);
       }
 
 
@@ -68,16 +71,31 @@ export default function PostForm() {
 
 
     return (
-        <div className='post-form-wrapper'>
-            <form onSubmit={handleSubmit}>
-                <h1>{formType}</h1>
-                <textarea onChange={e => setBody(e.target.value)} value={body}/>
-                <br/>
-                <button type='submit'>{formType}</button>
-                <input type="file" onChange={handleFile} />
-
-            </form>
-        </div>
+        <div className='newPost-container'>
+            <div className="create-post-user-container">
+                <img className="profile-image" src={sessionUser.photo}></img>
+                <span className="newPost-firstname">{sessionUser.first_name}</span>
+            </div>
+            <form className="newPost-form">
+                <div>
+                    <div className="post-label-container">
+                        <label className='newPost-label'>
+                            <textarea
+                                placeholder='What do you want to talk about?'
+                                className='newPost-text'
+                                type='textarea'
+                                value={body}
+                                onInput={(e) => {
+                                    setBody(e.target.value)
+                                }}
+                                // onChange={(e) => setNewPost(e.target.value)}
+                                required
+                            ></textarea>
+                        </label>
+                        <button className='post-button' type='submit' onClick={handleSubmit}>Post</button>
+                    </div>
+                </div>
+            </form >
+        </div >
     )
-    
 }

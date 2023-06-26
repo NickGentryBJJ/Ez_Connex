@@ -19,8 +19,9 @@
     align-items: center;
 }
 
+
 .prof-pic-main {
-    height: 4rem;
     width: 5rem;
     border-radius: 50%;
+    
 }

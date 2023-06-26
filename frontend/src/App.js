@@ -4,7 +4,8 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import PostIndex from './components/PostIndex/PostIndex';
-import PostForm from './components/PostForm/PostForm'
+import CreatePostModal from './components/CreatePostModal/CreatePostModal';
+import PostForm from './components/PostForm/PostForm';
 
 
 function App() {

@@ -21,10 +21,10 @@
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
     demo_user = User.create!(
-      first_name: 'Demo',
-      last_name: 'lition', 
-      title: 'Wrecking Ball',
-      email: 'demo@email.io', 
+      first_name: 'Gwyn',
+      last_name: 'Lord of Cinder', 
+      title: 'Lord of Cinder',
+      email: 'gwyn@email.com', 
       password: 'password'
       
     )
@@ -38,7 +38,7 @@
     )
 
     siegmeyer.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/siegmeyer.jpg'), filename: 'siegmeyer.jpg')
-    demo_user.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/wreckingball.png'), filename: 'wreckingball.png')
+    demo_user.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyn_prof_pic.png'), filename: 'gwyn_prof_pic.png')
 
     
     puts "Creating Posts Bitch..."
@@ -51,28 +51,18 @@
       
       post2 = Post.create!({
         id: 901,
-        body: 'Another day of destrution!',
+        body: 'Linking the fire took a lot out of me, if anyone knows a good physical therapist let me know in the comments.',
         user_id: 1
         })
         
-        post3 = Post.create!({
-          id: 903,
-          body: 'Hope Everyone destroys the day! Send it!',
-          user_id: 1
-          })
         post5 = Post.create!({
-          id: 905,
-          body: 'mmmmh, mmmh. Oh ho!',
-          user_id: 2
+          id: 805,
+          body: 'mmmmh, mmmh.... Oh ho! Forgive me, I was absorbed in thought.  I am in quite a pickle... Quite a pickle indeed..',
+          user_id: 2 
           })
-        post4 = Post.create!({
-          id: 904,
-          body: 'I really love the taste of strawberries glistening in the moonlight. I really cant get enough of your strawberries.',
-          user_id: 1
-          })
+        
 
-
-          post1.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/wreckingball.png'), filename: 'wreckingball.png')
+          post1.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyn_prof_pic.png'), filename: 'gwyn_prof_pic.png')
           post5.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/Siegmeyer_of_Catarina_HD.webp'), filename: 'Siegmeyer_of_Catarina_HD.webp')
 
           puts "Posts Created Motha Fucka..." 
