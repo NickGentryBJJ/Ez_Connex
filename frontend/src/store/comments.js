@@ -30,7 +30,7 @@ export const getComments = store => {
 }
 
 export const getPostComments = postId => store => {
-    return Object.values(store.comments).filter((com) => com.postId === postId)
+    return Object.values(store.comments).filter((comment) => comment.postId === postId)
 }
 
 export const fetchComments = () => async(dispatch) => {

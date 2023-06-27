@@ -34,7 +34,7 @@ let posts = useSelector(getPosts);
                             </button>
                         </NavLink>
                     </div>
-                        {posts.map(post => (
+                        {posts.reverse().map(post => (
                             <PostIndexItem post={post} key={post.id}/>
                             ))}
                 </ul>
