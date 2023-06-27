@@ -15,7 +15,9 @@ export default function PostIndexItem({post}) {
                 <ul className='photo-post-info-container'>
                 <li><UserPostCard post={post}/></li>
                     <li className='photo-post-body'>{post.body}</li>
+                    <div className='photo-container'>
                     <li className='li-post-photo'><img className='post-photo' src={`${post.photo}`}/></li>
+                    </div>
                 </ul>
             </div>
         </div>

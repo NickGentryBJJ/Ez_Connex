@@ -73,18 +73,18 @@ export default function PostForm() {
 
 
     return (
-        <div className='newPost-container'>
+        <div className='create-post-container'>
             <div className="create-post-user-container">
                 <img className="profile-image" src={sessionUser.photo}></img>
-                <span className="newPost-firstname">{sessionUser.first_name}</span>
+                <span className="create-post-first-name">{sessionUser.firstName}</span>
             </div>
-            <form className="newPost-form">
+            <form className="create-post-form">
                 <div>
                     <div className="post-label-container">
-                        <label className='newPost-label'>
+                        <label className='create-post-label'>
                             <textarea
                                 placeholder='What do you want to talk about?'
-                                className='newPost-text'
+                                className='create-post-text'
                                 type='textarea'
                                 value={body}
                                 onInput={(e) => {

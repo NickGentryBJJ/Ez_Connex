@@ -65,7 +65,8 @@
 
 .photo-post-body {
     padding-top: 3%;
-    max-width: 50%;
+    max-width: 100%;
+    min-width: 100%;
     position: relative;
     
     padding-bottom: 5%;
@@ -83,7 +84,7 @@
 
 .post-photo {
     width: 100%;
-    max-height: 80%;
+    
 }
 
 

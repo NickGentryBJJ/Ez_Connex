@@ -1,4 +1,4 @@
-.newPost-container {
+.create-post-container {
     margin-top: 17%;
     height: 400px;
     width: 560px;
@@ -25,22 +25,22 @@
     border-radius: 50%;
 }
 
-.newPost-firstname {
+.create-post-first-name {
     font-weight: 500;
     font-size: 17px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
-.newPost-form {
+.create-post-form {
     padding: 20px;
 }
 
-.newPost-text:focus {
+.create-post-text:focus {
     outline: none;
 }
 
 
-.newPost-text {
+.create-post-text {
     display: flex;
     justify-content: center;
     width: 475px;
