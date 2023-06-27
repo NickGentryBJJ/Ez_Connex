@@ -11,8 +11,10 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 export default function PostForm() {
     const history = useHistory();
     const { postId } = useParams();
-    const formType = postId ? 'Update Post' : 'Create Post';
+    // const formType = postId ? 'Update Post' : 'Create Post';
     let post = useSelector(getPost(postId));
+    const formType = postId ? 'Update Post' : 'Create Post';
+    const buttonText = postId ? "Edit" : "Post"
     const dispatch = useDispatch();
     const [photoFile, setPhotoFile] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
@@ -27,7 +29,7 @@ export default function PostForm() {
         if (formType === 'Update Post'){
             dispatch(fetchPost(postId))
         }
-    })
+    }, [])
 
     const [body, setBody] = useState(post.body);
 
@@ -92,7 +94,7 @@ export default function PostForm() {
                                 required
                             ></textarea>
                         </label>
-                        <button className='post-button' type='submit' onClick={handleSubmit}>Post</button>
+                        <button className='post-button' type='submit' onClick={handleSubmit}>{buttonText}</button>
                     </div>
                 </div>
             </form >

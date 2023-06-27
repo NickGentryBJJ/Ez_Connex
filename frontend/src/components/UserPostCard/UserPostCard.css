@@ -1,9 +1,11 @@
 .user-card-wrapper {
     display: flex;
     padding-bottom: 10px;
+    max-height: 47px;
 }
 .user-card-container {
     padding-left: 10px;
+    
 }
 
 .card-user-photo {
@@ -24,12 +26,13 @@
 }
 .drop-down-dots {
     position: relative;
-    left: 102%;
+    left: 105%;
 }
 
 
 .photo-user-card-wrapper {
  display: flex;
+ max-height: 47px;
 }
 .photo-user-card-container {
     padding-left: 10px;
@@ -54,5 +57,5 @@
 
 .photo-drop-down-dots {
     position: relative;
-    left: 56%;
+    left: 58%;
 }

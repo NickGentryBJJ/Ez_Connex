@@ -10,6 +10,17 @@ class Api::PostsController < ApplicationController
       render json: @post
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      @posts = Post.all 
+        render json: :index
+    else  
+        render json: {errors:@post.errors.full_messages},status: 422
+    end
+
+end
+
   def create
     @posts = Post.all
     @post = Post.new(post_params)
