@@ -22,7 +22,7 @@ let posts = useSelector(getPosts);
     return (
         <>  
             <div className='index-wrapper'>
-                <ProfileMain user={sessionUser}/>
+                <ProfileMain/>
                 <ul className='index-information'>
                     <div className='create-button-wrapper'>
                         <div className='profile-pic-wrapper'>

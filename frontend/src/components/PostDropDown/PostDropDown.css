@@ -2,38 +2,3 @@
     background-color: white;
     border: 0;
 }
-
-.delete-button {
-    border: none;
-    color: white;
-    background-color: #0b66c2;
-    width: 57px;
-    height: 21px;
-    border-radius: 18px;
-    font-size: 15.8px;
-    cursor: pointer;
-}
-
-.delete-button:hover {
-    background-color: #015b90;
-}
-.edit-button {
-    border: none;
-    color: white;
-    background-color: #0b66c2;
-    width: 57px;
-    height: 21px;
-    border-radius: 18px;
-    font-size: 15.8px;
-    cursor: pointer;
-}
-
-.edit-button:hover {
-    background-color: #015b90;
-}
-
-.mod-button {
-    padding-top: 2px;
-    left: -16px;
-    position: relative;
-}

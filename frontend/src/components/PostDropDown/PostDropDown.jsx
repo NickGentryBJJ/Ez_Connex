@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch} from 'react-redux';
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { deletePost } from '../../store/posts';
 import './PostDropDown.css'
 
@@ -34,8 +34,8 @@ function PostDropDown({ post }) {
         </button>
         {showMenu && (
             <ul className="post-mod-dropdown">
-            <li className="mod-button"><NavLink to={`/posts/${post.id}`}><button className="edit-button">Edit</button></NavLink> </li> 
-            <li className="mod-button"><button className="delete-button" onClick={() => dispatch(deletePost(post.id))}>Delete</button></li>
+            <li><Link to={`/posts/${post.id}/edit`}>Edit</Link></li> 
+            <li><button onClick={() => dispatch(deletePost(post.id))}>Delete</button></li>
             </ul>
         )}
         </>
