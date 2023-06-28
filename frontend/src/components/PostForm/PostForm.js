@@ -78,7 +78,7 @@ export default function PostForm() {
                 <img className="profile-image" src={sessionUser.photo}></img>
                 <span className="create-post-first-name">{sessionUser.firstName}</span>
             </div>
-            <form className="create-post-form">
+            <form onSubmit={handleSubmit} className="create-post-form">
                 <div>
                     <div className="post-label-container">
                         <label className='create-post-label'>
@@ -94,7 +94,7 @@ export default function PostForm() {
                                 required
                             ></textarea>
                         </label>
-                        <button className='post-button' type='submit' onClick={handleSubmit}>{buttonText}</button>
+                        <button className='post-button' type='submit' >{buttonText}</button>
                     </div>
                 </div>
             </form >

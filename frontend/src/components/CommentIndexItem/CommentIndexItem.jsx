@@ -1,3 +1,4 @@
+import "./CommentIndexItem.css";
 
 export default function CommentIndexItem ({comment}) {
     return (
@@ -7,7 +8,7 @@ export default function CommentIndexItem ({comment}) {
             className="comment-user-photo"/>
             <span className="user-first-last-name">{comment.user.firstName} {comment.user.lastName}</span>
             <span className="user-occupation">{comment.user.occupation}</span>
-            <span className="user-comment">{comment.comment}</span>
+            <span className="user-comment">{comment.body}</span>
         </div>
     )
     

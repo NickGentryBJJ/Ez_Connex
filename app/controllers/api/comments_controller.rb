@@ -1,4 +1,7 @@
 class Api::CommentsController < ApplicationController
+  wrap_parameters include: User.attribute_names + ['postId', 'userId', 'body']
+
+
   def index 
     @comments = Comment.all 
     render :index
@@ -10,10 +13,13 @@ class Api::CommentsController < ApplicationController
   end
 
   def create 
+   
     @comment = Comment.new(comment_params)
     if @comment.save 
+     
         render :index
     else
+     
         render json: {errors:@comment.errors.full_messages},status: 422
     end
   end

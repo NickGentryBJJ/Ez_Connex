@@ -20,7 +20,7 @@
     
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
-    demo_user = User.create!(
+    gwyn = User.create!(
       first_name: 'Gwyn',
       last_name: 'Lord of Cinder', 
       title: 'Lord of Cinder',
@@ -38,7 +38,7 @@
     )
 
     siegmeyer.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/siegmeyer.jpg'), filename: 'siegmeyer.jpg')
-    demo_user.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyn_prof_pic.png'), filename: 'gwyn_prof_pic.png')
+    gwyn.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyn_prof_pic.png'), filename: 'gwyn_prof_pic.png')
 
     
     puts "Creating Posts Bitch..."
@@ -75,6 +75,18 @@
             user_id: 2,
             post_id: 900,
             body: "Lookin hot Gwyn..."
+          })
+          comment1 = Comment.create!({
+            id: 901,
+            user_id: 2,
+            post_id: 901,
+            body: "You shouldn't have linked the fire anyways dummy."
+          })
+          comment1 = Comment.create!({
+            id: 902,
+            user_id: 1,
+            post_id: 805,
+            body: "Smh... Always getting stuck somewhere."
           })
           
           puts "Finished like your mom last night..."

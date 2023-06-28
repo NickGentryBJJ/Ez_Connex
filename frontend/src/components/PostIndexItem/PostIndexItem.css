@@ -19,8 +19,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: unset;
-    max-width: 55%;
-    min-width: 55%;
+    max-width: 85%;
+    min-width: 85%;
 }
 
 .post-body {
@@ -60,8 +60,8 @@
 
 .photo-post-body {
     padding-top: 3%;
-    max-width: 100%;
-    min-width: 100%;
+    max-width: 85%;
+    min-width: 85%;
     position: relative;
     
     padding-bottom: 5%;

@@ -13,10 +13,10 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
     const userId = useSelector(state => state.session.user.id)
     const postId = post.id
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const userComment = {
-            comment: newComment,
+            body: newComment,
             userId: userId,
             postId: postId
         } 
@@ -35,8 +35,9 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
         </div>
         <div className="new-comment-container">
             {showCommentForm && (
+
                 <div className="comment-form-container">
-                    <form className="comment-form">
+                    <form onSubmit={handleSubmit} className="comment-form">
                         <div className="comment-user-photo-container">
                             <img className="comment-user-photo" src={sessionUser.photo} />
                             <textarea
@@ -50,12 +51,13 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
                                 // onChange={(e) => setNewPost(e.target.value)}
                                 required
                             ></textarea>
-                            <button className="create-new-comment-button" onSubmit={handleSubmit}>Post</button>
+                            <button className="create-new-comment-button" >Post</button>
                         </div>
                     </form>
+                    <div className="comment-index"><CommentIndex post={post}/></div>
                 </div>
+            
             )}
-            <CommentIndex post={post}/>
         </div>
         </>
         

@@ -29,6 +29,7 @@ export const getComments = state => {
 }
 
 export const getPostComments = postId => state => {
+    
     return Object.values(state.comments).filter((comment) => comment.postId === postId)
 }
 
@@ -41,6 +42,7 @@ export const fetchComments = () => async(dispatch) => {
 }
 
 export const createComment = comment => async (dispatch) => {
+    
     const response = await csrfFetch(`/api/comments`,{
         method: 'POST',
         headers: {

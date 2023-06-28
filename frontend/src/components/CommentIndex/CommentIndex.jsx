@@ -3,6 +3,7 @@ import * as commentActions from '../../store/comments'
 import CommentIndexItem from "../CommentIndexItem/CommentIndexItem";
 
 export default function CommentIndex({post}) {
+   
     const postId = post.id
     const allComments = useSelector(commentActions.getPostComments(postId))
 

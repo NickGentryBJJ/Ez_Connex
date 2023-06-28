@@ -6,6 +6,7 @@ import './PostIndex.css'
 import { NavLink, Redirect } from 'react-router-dom/cjs/react-router-dom';
 import ProfileMain from '../ProfileMain/ProfileMain';
 import AboutEz from '../AboutEz/AboutEz';
+import { fetchComments } from '../../store/comments';
 
 
 export default function PostIndex() {
@@ -14,7 +15,10 @@ let posts = useSelector(getPosts);
 
     useEffect(() => {
         dispatch(fetchPosts())
+        dispatch(fetchComments())
     }, [dispatch])
+
+
 
     const sessionUser = useSelector(state => state.session.user)
     if (!sessionUser) return <Redirect to='/login' />
