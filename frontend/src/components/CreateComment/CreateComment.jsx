@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createComment } from "../../store/comments";
-import { fetchPosts } from "../../store/posts";
+import * as commentActions from "../../store/comments"
 import './CreateComent.css'
+import CommentIndex from "../CommentIndex/CommentIndex";
 
 
 const CreateComment = ({ post, showComments, setShowComments }) => {
@@ -10,17 +10,18 @@ const CreateComment = ({ post, showComments, setShowComments }) => {
 
     const sessionUser = useSelector(state => state.session.user);
     const [newComment, setNewComment] = useState('');
-    
+    const userId = useSelector(state => state.session.user.id)
+    const postId = post.id
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const userComment = {
-            comment: newComment
+            comment: newComment,
+            userId: userId,
+            postId: postId
         } 
-        const data = await dispatch(createComment(userComment, post.id))
-        await dispatch(fetchPosts(data));
-        if (data) {
-            setNewComment('')
-        }
+        dispatch(commentActions.createComment(userComment))
+        
     }
 
     return (
@@ -29,7 +30,7 @@ const CreateComment = ({ post, showComments, setShowComments }) => {
             <button
                 onClick={() => setShowComments(!showComments)}
                 className="comment-button"
-                ><span className="new-commment-text">Comment</span>
+                ><span className="create-commment-text">Comment</span>
             </button>
         </div>
         <div className="new-comment-container">
@@ -54,6 +55,7 @@ const CreateComment = ({ post, showComments, setShowComments }) => {
                     </form>
                 </div>
             )}
+            <CommentIndex post={post}/>
         </div>
         </>
         

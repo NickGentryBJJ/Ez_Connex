@@ -66,6 +66,16 @@
           post5.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/Siegmeyer_of_Catarina_HD.webp'), filename: 'Siegmeyer_of_Catarina_HD.webp')
 
           puts "Posts Created Motha Fucka..." 
+
+
+          puts "Creating Comments..."
+
+          comment1 = Comment.create!({
+            id: 900,
+            user_id: 2,
+            post_id: 900,
+            body: "Lookin hot Gwyn..."
+          })
           
           puts "Finished like your mom last night..."
           # puts "done"

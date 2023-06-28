@@ -21,16 +21,16 @@ const removeComment = commentId => ({
     commentId
 });
 
-export const getComment = commentId => store => {
-    return store.comments ? store.comments[commentId] : null;
+export const getComment = commentId => state => {
+    return state.comments ? state.comments[commentId] : null;
 }
 
-export const getComments = store => {
-    return store.comments ? Object.values(store.comments) : []
+export const getComments = state => {
+    return state.comments ? Object.values(state.comments) : []
 }
 
-export const getPostComments = postId => store => {
-    return Object.values(store.comments).filter((comment) => comment.postId === postId)
+export const getPostComments = postId => state => {
+    return Object.values(state.comments).filter((comment) => comment.postId === postId)
 }
 
 export const fetchComments = () => async(dispatch) => {
@@ -41,26 +41,17 @@ export const fetchComments = () => async(dispatch) => {
     }
 }
 
-export const createComment = comment => async(dispatch) => {
-    const{user_id, post_id, body} = comment;
+export const createComment = comment => async (dispatch) => {
     const response = await csrfFetch(`/api/comments`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            comment:{
-                user_id,
-                post_id,
-                body
-            }
-        })
+        body: JSON.stringify(comment)
     })
     if (response.ok) {
-        const data = await response.json()
-        dispatch(receiveComment(data.comment))
-        dispatch(getPost(data.post))
-        return data;
+        const comment = await response.json();
+        dispatch(receiveComment(comment));
     }
 }
 
