@@ -6,5 +6,6 @@
             json.extract! post.user, :first_name, :title
             json.photo post.user.photo.attached? ? post.user.photo.url : nil
         end
+    
     end
 end

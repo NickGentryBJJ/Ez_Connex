@@ -6,7 +6,7 @@ import CreateComment from '../CreateComment/CreateComment';
 
 
 export default function PostIndexItem({post}) {
-    const [showComments, setShowComments] = useState(false)
+    const [showCommentForm, setShowCommentForm] = useState(false)
 
     if (post.photo) {
         return (
@@ -20,7 +20,7 @@ export default function PostIndexItem({post}) {
                     </div>
                 </ul>
                 <div className='photo-post-create-comment'>
-                    <CreateComment post={post} showComments={showComments} setShowComments={setShowComments}/>
+                    <CreateComment post={post} showCommentForm={showCommentForm} setShowCommentForm={setShowCommentForm}/>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@ export default function PostIndexItem({post}) {
                             <li><UserPostCard post={post}/></li>
                             <li className='post-body'>{post.body}</li>
                         <div className='post-create-comment'>
-                            <CreateComment post={post} showComments={showComments} setShowComments={setShowComments}/>
+                            <CreateComment post={post} showCommentForm={showCommentForm} setShowCommentForm={setShowCommentForm}/>
                         </div>
                         </ul>
                     </div>

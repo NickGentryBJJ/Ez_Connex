@@ -5,7 +5,7 @@ import './CreateComent.css'
 import CommentIndex from "../CommentIndex/CommentIndex";
 
 
-const CreateComment = ({ post, showComments, setShowComments }) => {
+const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
     const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state.session.user);
@@ -28,13 +28,13 @@ const CreateComment = ({ post, showComments, setShowComments }) => {
         <>
         <div className="comment-button-wrapper">
             <button
-                onClick={() => setShowComments(!showComments)}
+                onClick={() => setShowCommentForm(!showCommentForm)}
                 className="comment-button"
                 ><span className="create-commment-text">Comment</span>
             </button>
         </div>
         <div className="new-comment-container">
-            {showComments && (
+            {showCommentForm && (
                 <div className="comment-form-container">
                     <form className="comment-form">
                         <div className="comment-user-photo-container">

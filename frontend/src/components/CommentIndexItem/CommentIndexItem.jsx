@@ -1,6 +1,5 @@
 
 export default function CommentIndexItem ({comment}) {
-
     return (
         <div className="comment-container">
             <img
