@@ -10,7 +10,7 @@
     justify-content: space-between;
     display: flex;
     flex-direction: row;
-
+    
     
 }
 
@@ -29,7 +29,7 @@
 }
 
 .post-create-comment {
-    width: 39%;
+    width: 33%;
 }
 
 
@@ -88,5 +88,5 @@
 }
 
 .photo-post-create-comment {
-    width: 39%;
+    width: 98%;
 }

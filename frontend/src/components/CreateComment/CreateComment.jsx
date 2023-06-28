@@ -50,7 +50,7 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
                                 // onChange={(e) => setNewPost(e.target.value)}
                                 required
                             ></textarea>
-                            <button onSubmit={handleSubmit}>Post</button>
+                            <button className="create-new-comment-button" onSubmit={handleSubmit}>Post</button>
                         </div>
                     </form>
                 </div>

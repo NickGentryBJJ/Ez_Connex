@@ -1,5 +1,4 @@
 import csrfFetch from "./csrf";
-import {getPost} from "./posts"
 
 export const RECEIVE_COMMENTS = 'comments/RECEIVE_COMMENTS'
 export const RECEIVE_COMMENT = 'comments/RECEIVE_COMMENT'
