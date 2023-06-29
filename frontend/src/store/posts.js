@@ -57,13 +57,10 @@ export const createPost = formData => async (dispatch) =>{
     }
 }
 
-export const updatePost = post => async (dispatch) => {
+export const updatePost = (post, formData) => async (dispatch) => {
     const response = await csrfFetch(`/api/posts/${post.id}`, {
         method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post)
+        body: formData
     });
 
     if (response.ok) {
