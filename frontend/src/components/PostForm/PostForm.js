@@ -44,12 +44,9 @@ export default function PostForm() {
         
         
         if (formType === 'Create Post') {
-            dispatch(createPost(formData));
-            history.push('/');
-            
+            dispatch(createPost(formData)).then(history.push('/'));    
         } else {
-            dispatch(updatePost(formData));
-            history.push('/');
+            dispatch(updatePost(formData)).then(history.push('/'));
         }
         
     }
