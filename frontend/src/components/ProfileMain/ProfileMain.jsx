@@ -6,8 +6,8 @@ const ProfileMain = ({user}) => {
         <div className="profile-main-wrapper">
             <ul className="profile-main-container">
                 <li className="prof-pic-li"><img className="prof-pic-main" src={user.photo}/></li>
-                <li>{user.firstName}</li>
-                <li>{user.title}</li>
+                <li className="profile-main-name">{user.firstName}</li>
+                <li className='profile-main-title'>{user.title}</li>
                 <li>Do not reject help from others if you want to grow!</li>
             </ul>
         </div>

@@ -37,33 +37,108 @@
       password: 'password'
     )
 
-    siegmeyer.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/siegmeyer.jpg'), filename: 'siegmeyer.jpg')
-    gwyn.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyn_prof_pic.png'), filename: 'gwyn_prof_pic.png')
+    artorias = User.create!(
+      first_name: 'Artorias',
+      last_name: 'Of the Abyss',
+      title: 'Abyss Walker',
+      email: 'arty@catarina.com',
+      password: 'password'
+    )
+    solair = User.create!(
+      first_name: 'Solair',
+      last_name: 'Of Astora',
+      title: 'Sun Bro',
+      email: 'sunbro@catarina.com',
+      password: 'password'
+    )
+    gwyndolin = User.create!(
+      first_name: 'Gwyndolin',
+      last_name: 'Dark Sun',
+      title: 'Blade of the Darkmoon',
+      email: 'snakesinmyskirt@catarina.com',
+      password: 'password'
+    )
+    sif = User.create!(
+      first_name: 'Sif',
+      last_name: 'The Great Grey Wolf',
+      title: 'Good Boi',
+      email: 'SwordInMyMouth@catarina.com',
+      password: 'password'
+    )
+    patches = User.create!(
+      first_name: 'Patches',
+      last_name: 'The Hyena',
+      title: 'Humble Merchant',
+      email: 'lootGod@catarina.com',
+      password: 'password'
+    )
+    quelaag = User.create!(
+      first_name: 'Quelaag',
+      last_name: 'Chaos Witch',
+      title: 'Daughter of Chaos',
+      email: 'spiderMami@catarina.com',
+      password: 'password'
+    )
 
     
+    puts "Users created... Slut..."
+    puts "Attaching photos fucker"
+
+    # 1
+    gwyn.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/real_gwyn_pic.png'), filename: 'real_gwyn_pic.png')
+    # 2
+    siegmeyer.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/siegmeyer.jpg'), filename: 'siegmeyer.jpg')
+    # 3
+    artorias.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/ARTORIAS+2.jpg'), filename: 'ARTORIAS+2.jpg')
+    # 4
+    solair.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/SOLAIRE.jpg'), filename: 'SOLAIRE.jpg')
+    # 5
+    gwyndolin.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyndolin.png'), filename: 'gwyndolin.png')
+    # 6
+    sif.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/sif.jpg'), filename: 'sif.jpg')
+    # 7
+    patches.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/patches.png'), filename: 'patches.png')
+    # 8
+    quelaag.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/quelaag.png'), filename: 'quelaag.png')
+
+
+    puts "Photos attached lil whore..."
     puts "Creating Posts Bitch..."
 
     post1 = Post.create!({
-      id: 900,
       body: 'Felt cute... Might delete later 😜',
       user_id: 1
       })
       
       post2 = Post.create!({
-        id: 901,
-        body: 'Linking the fire took a lot out of me, if anyone knows a good physical therapist let me know in the comments.',
-        user_id: 1
+        body: 'Praise the Sun!',
+        user_id: 4
         })
         
-        post5 = Post.create!({
-          id: 805,
+        post3 = Post.create!({
           body: 'mmmmh, mmmh.... Oh ho! Forgive me, I was absorbed in thought.  I am in quite a pickle... Quite a pickle indeed..',
           user_id: 2 
           })
+          post4 = Post.create!({
+            body: 'Shout out to my homie Sif. Been there since day 1.',
+            user_id: 3 
+            })
+          post5 = Post.create!({
+            body: 'Wake up and feel the wrath of my DarkmoonBlade!',
+            user_id: 5
+            })
+          post6 = Post.create!({
+            body: 'I am done with all the looting.. Im a humble merchant now. Trusty Patches. kehehehe',
+            user_id: 7
+            })
+          post7 = Post.create!({
+            body: 'Sometimes being a spider is not easy. But i do like spitting lava at people. :)',
+            user_id: 8
+            })
         
 
-          post1.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyn_prof_pic.png'), filename: 'gwyn_prof_pic.png')
-          post5.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/Siegmeyer_of_Catarina_HD.webp'), filename: 'Siegmeyer_of_Catarina_HD.webp')
+          post1.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/real_gwyn_pic.png'), filename: 'real_gwyn_pic.png')
+          post3.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/Siegmeyer_of_Catarina_HD.webp'), filename: 'Siegmeyer_of_Catarina_HD.webp')
 
           puts "Posts Created Motha Fucka..." 
 
@@ -71,22 +146,29 @@
           puts "Creating Comments..."
 
           comment1 = Comment.create!({
-            id: 900,
             user_id: 2,
-            post_id: 900,
+            post_id: 1,
             body: "Lookin hot Gwyn..."
           })
-          comment1 = Comment.create!({
-            id: 901,
+          comment2 = Comment.create!({
             user_id: 2,
-            post_id: 901,
-            body: "You shouldn't have linked the fire anyways dummy."
+            post_id: 2,
+            body: "Hmmmmm... You warriors of sunlight do have a fascinating way of life..."
           })
-          comment1 = Comment.create!({
-            id: 902,
+          comment3 = Comment.create!({
             user_id: 1,
-            post_id: 805,
+            post_id: 3,
             body: "Smh... Always getting stuck somewhere."
+          })
+          comment4 = Comment.create!({
+            user_id: 6,
+            post_id: 4,
+            body: "Till the bitter end my dear friend. I mean woof."
+          })
+          comment5 = Comment.create!({
+            user_id: 2,
+            post_id: 6,
+            body: "Congrates Patches!! Happy for you buddy."
           })
           
           puts "Finished like your mom last night..."

@@ -54,11 +54,12 @@ function SignupFormPage() {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
       fileReader.onload = () => setPhotoUrl(fileReader.result);
+      
       } else setPhotoUrl(null);
   }
 
   let preview = null;
-  if (photoUrl) preview = <img src={photoUrl} alt="" />;
+  if (photoUrl) preview = <img className="preview-image" src={photoUrl} alt="" />;
 
   return (
   <>

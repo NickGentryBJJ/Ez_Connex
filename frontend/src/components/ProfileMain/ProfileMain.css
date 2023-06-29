@@ -25,3 +25,13 @@
     border-radius: 50%;
     
 }
+
+.profile-main-name {
+    font-weight: 600;
+    font-size: 20px;
+}
+.profile-main-title {
+    padding: 10px;
+    font-size: 16px;
+    color: rgb(132, 132, 132);
+}

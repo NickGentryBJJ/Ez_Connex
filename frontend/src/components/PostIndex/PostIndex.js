@@ -10,7 +10,10 @@ import { fetchComments } from '../../store/comments';
 
 
 export default function PostIndex() {
-let posts = useSelector(getPosts);
+    
+const posts = [...useSelector(getPosts)].reverse()
+
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -38,7 +41,7 @@ let posts = useSelector(getPosts);
                             </button>
                         </NavLink>
                     </div>
-                        {posts.reverse().map(post => (
+                        {posts.map(post => (
                             <PostIndexItem post={post} key={post.id}/>
                             ))}
                 </ul>

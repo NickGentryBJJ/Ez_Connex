@@ -1,9 +1,14 @@
-import { NavLink} from 'react-router-dom';
+import { NavLink, Link} from 'react-router-dom';
 import PostDropDown from '../PostDropDown/PostDropDown'
 import './UserPostCard.css'
 import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 export default function UserPostCard({post}) {
+    const history = useHistory();
+    const handleUserName = () => {
+        history.push(`/users/${post.userId}`)
+    }
     
     const sessionUser = useSelector(state => state.session.user)
     if (!post.user) return null;
@@ -12,7 +17,7 @@ export default function UserPostCard({post}) {
         <div className='user-card-wrapper'>
                 <img className='card-user-photo' src={post.user.photo}/>
             <ul className='user-card-container'>
-                <NavLink to={`/users/${post.userId}`}><li className='card-user-name'>{post.user.firstName}</li></NavLink>
+                <li onClick={handleUserName} className='card-user-name'>{post.user.firstName}</li>
                 <li className='card-user-title'>{post.user.title}</li>
             </ul>
             
@@ -27,7 +32,7 @@ export default function UserPostCard({post}) {
             <div className='photo-user-card-wrapper'>
                     <img className='photo-card-user-photo' src={post.user.photo}/>
                 <ul className='photo-user-card-container'>
-                <NavLink to={`/users/${post.userId}`}><li className='card-user-name'>{post.user.firstName}</li></NavLink>
+                <li onClick={handleUserName} className='card-user-name'>{post.user.firstName}</li>
                     <li className='photo-card-user-title'>{post.user.title}</li>
                 </ul>
                 <div className='photo-drop-down-dots'>
@@ -41,7 +46,7 @@ export default function UserPostCard({post}) {
             <div className='user-card-wrapper'>
                     <img className='card-user-photo' src={post.user.photo}/>
                 <ul className='user-card-container'>
-                <NavLink to={`/users/${post.userId}`}><li className='card-user-name'>{post.user.firstName}</li></NavLink>
+                <li onClick={handleUserName} className='card-user-name'>{post.user.firstName}</li>
                     <li className='card-user-title'>{post.user.title}</li>
                 </ul>
             </div>
