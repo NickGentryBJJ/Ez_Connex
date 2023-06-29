@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 import PostIndex from './components/PostIndex/PostIndex';
 import CreatePostModal from './components/CreatePostModal/CreatePostModal';
 import PostForm from './components/PostForm/PostForm';
+import UserShowPage from './components/UserShowPage/UserShowPage';
 
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
     <>
     <Navigation />
     <Switch>
+      <Route path='/users/:userId'>
+        <UserShowPage/>
+      </Route>
       <Route path='/posts/:postId'>
         <PostForm/>
       </Route>
@@ -21,9 +25,6 @@ function App() {
       </Route>
       <Route path="/signup">
         <SignupFormPage />
-      </Route>
-      <Route path="/feed">
-          <PostIndex />
       </Route>
       <Route path = "/posts">
         <PostForm />

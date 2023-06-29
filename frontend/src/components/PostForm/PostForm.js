@@ -11,7 +11,6 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 export default function PostForm() {
     const history = useHistory();
     const { postId } = useParams();
-    // const formType = postId ? 'Update Post' : 'Create Post';
     let post = useSelector(getPost(postId));
     const formType = postId ? 'Update Post' : 'Create Post';
     const buttonText = postId ? "Edit" : "Post"
@@ -61,11 +60,11 @@ export default function PostForm() {
         const file = currentTarget.files[0];
         setPhotoFile(file);
         if (file) {
-          const fileReader = new FileReader();
-          fileReader.readAsDataURL(file);
-          fileReader.onload = () => setPhotoUrl(fileReader.result);
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => setPhotoUrl(fileReader.result);
         }  else setPhotoUrl(null);
-      }
+    }
 
 
     const sessionUser = useSelector(state => state.session.user)

@@ -1,0 +1,43 @@
+.prof-pic-user-show {
+    width: 40%;
+    margin-top: 5%;
+    border-radius: 50%;
+}
+
+.user-show-wrapper {
+    width: 100vw;
+    padding-top: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.user-show-container {
+    margin-top: 17%;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -95%);
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 18px;
+}
+
+.user-show-info-name {
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.user-show-info-title {
+    padding: 10px;
+    font-size: 16px;
+    color: rgb(132, 132, 132);
+}
+.user-show-info-bio {
+    padding: 10px;
+}

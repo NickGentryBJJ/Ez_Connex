@@ -52,7 +52,7 @@ export const createComment = comment => async (dispatch) => {
     })
     if (response.ok) {
         const comment = await response.json();
-        dispatch(receiveComment(comment));
+        dispatch(receiveComments(comment));
     }
 }
 

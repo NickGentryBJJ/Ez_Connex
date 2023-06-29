@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as commentActions from "../../store/comments"
 import './CreateComent.css'
 import CommentIndex from "../CommentIndex/CommentIndex";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [newComment, setNewComment] = useState('');
     const userId = useSelector(state => state.session.user.id)
     const postId = post.id
+
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,11 +24,12 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
             postId: postId
         } 
         dispatch(commentActions.createComment(userComment))
-        
+        setNewComment('')
+        history.push('/');
     }
 
     return (
-        <>
+    <>
         <div className="comment-button-wrapper">
             <button
                 onClick={() => setShowCommentForm(!showCommentForm)}
@@ -35,7 +39,6 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
         </div>
         <div className="new-comment-container">
             {showCommentForm && (
-
                 <div className="comment-form-container">
                     <form onSubmit={handleSubmit} className="comment-form">
                         <div className="comment-user-photo-container">
@@ -56,11 +59,10 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
                     </form>
                     <div className="comment-index"><CommentIndex post={post}/></div>
                 </div>
-            
             )}
         </div>
-        </>
-        
+    </>
+    
     )
 }   
 

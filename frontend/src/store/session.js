@@ -1,7 +1,7 @@
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import csrfFetch from './csrf'
 export const SET_SESSION = 'session/SET_SESSION';
 export const REMOVE_SESSION = 'session/REMOVE_SESSION';
+export const SET_USER = 'session/GET_USER';
 
 
 const setSession = session => ({
@@ -11,6 +11,11 @@ const setSession = session => ({
 
 const removeSession = () => ({
     type: REMOVE_SESSION
+});
+
+const setUser = user => ({
+	type: SET_USER,
+	payload: user
 });
 
 const storeCSRFToken = response => {
@@ -74,6 +79,16 @@ export const restoreSession = () => async dispatch => {
     return response;
   };
 
+export const getUser = (userId) => async (dispatch) => {
+  const res = await fetch(`/api/users/${userId}`)
+
+  if (res.ok) {
+    const data = await res.json()
+    dispatch(setUser(data))
+    return data
+  }
+};
+
 const initialState = { user: JSON.parse(sessionStorage.getItem("currentUser")) };
 
 const sessionReducer = (state = initialState, action) => {
@@ -82,6 +97,8 @@ const sessionReducer = (state = initialState, action) => {
             return { ...state, user: action.session }; 
         case REMOVE_SESSION:
             return { ...state, user: null }; 
+        case SET_USER:
+            return { ...state, selectedUser: action.payload }
         default:
             return state;
     }
