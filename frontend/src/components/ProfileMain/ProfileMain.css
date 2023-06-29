@@ -29,6 +29,7 @@
 .profile-main-name {
     font-weight: 600;
     font-size: 20px;
+    cursor: pointer;
 }
 .profile-main-title {
     padding: 10px;

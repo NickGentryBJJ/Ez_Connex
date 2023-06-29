@@ -1,4 +1,3 @@
-import { NavLink, Link} from 'react-router-dom';
 import PostDropDown from '../PostDropDown/PostDropDown'
 import './UserPostCard.css'
 import { useSelector } from 'react-redux'

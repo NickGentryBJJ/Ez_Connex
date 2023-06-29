@@ -38,18 +38,18 @@ function ProfileButton({ user }) {
       <button className="prof" onClick={openMenu}>
         <img className='nav-profile-pic' src={sessionUser.photo}/>
       </button>
-      <div className="profile-menu-container">
         {showMenu && (
+      <div className="profile-menu-container">
           <ul className="profile-dropdown">
             <li>{user.email}</li>
             <li>{user.firstName}</li>
-            <li>{user.title}</li>
+            <li className="drop-title">{user.title}</li>
             <li><NavLink to='/'><IoMdHome /></NavLink></li>
             <li><NavLink to='/posts'><IoMdCreate /></NavLink></li>            
-              <button onClick={logout}>Log Out</button>
+              <button className='logout-button' onClick={logout}>Log Out</button>
           </ul>
-        )}
       </div>
+        )}
     </div>
   );
 }

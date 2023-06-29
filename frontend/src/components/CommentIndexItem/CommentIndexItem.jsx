@@ -1,6 +1,12 @@
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import "./CommentIndexItem.css";
 
 export default function CommentIndexItem ({comment}) {
+    
+    const history = useHistory();
+    const handleUserName = () => {
+        history.push(`/users/${comment.userId}`)
+    }
     return (
         <div className="comment-wrapper">
             <img
@@ -8,7 +14,7 @@ export default function CommentIndexItem ({comment}) {
             className="comment-user-photo"/>
             <div className="comment-container">
             <div className="commenter-info">
-                <span className="user-first-last-name">{comment.user.firstName} {comment.user.lastName}</span>
+                <span onClick={handleUserName} className="user-first-last-name">{comment.user.firstName} {comment.user.lastName}</span>
                 <span className="user-title">{comment.user.title}</span>
             </div>
                 <span className="user-comment">{comment.body}</span>
