@@ -27,10 +27,15 @@ function SignupFormPage() {
     if (photoFile) {
       formData.append('user[photo]', photoFile);
     }
+    formData.append('user[email]', email);
+    formData.append('user[firstName]', firstName);
+    formData.append('user[lastName]', lastName);
+    formData.append('user[title]', title);
+    formData.append('user[password]', password);
     
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, firstName, lastName, title, password }))
+      return dispatch(sessionActions.signup(formData))
         .catch(async (res) => {
         let data;
         try {

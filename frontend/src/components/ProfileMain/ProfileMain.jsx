@@ -1,7 +1,7 @@
 import './ProfileMain.css';
 
 const ProfileMain = ({user}) => {
-
+    
     return(
         <div className="profile-main-wrapper">
             <ul className="profile-main-container">

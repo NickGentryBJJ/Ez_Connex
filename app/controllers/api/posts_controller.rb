@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+  wrap_parameters include: Post.attribute_names + [:photo]
 
   def index 
     @posts = Post.includes(:user).all 
@@ -41,7 +42,7 @@ end
 
 
   def post_params
-    params.require(:post).permit(:body, :user_id)
+    params.require(:post).permit(:body, :user_id, :photo)
   end
 
 end
