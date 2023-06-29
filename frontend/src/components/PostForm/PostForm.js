@@ -31,32 +31,30 @@ export default function PostForm() {
     }, [])
 
     const [body, setBody] = useState(post.body);
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('post[body]', body);
+        formData.append('post[userId]', sessionUser.id );
 
-        const newPost = {
-            ...post,
-            body: body,
-            user_id: sessionUser.id 
+        if (photoFile) {
+            formData.append('post[photo]', photoFile);
         }
         
+        
         if (formType === 'Create Post') {
-            dispatch(createPost(newPost));
+            dispatch(createPost(formData));
             history.push('/');
             
         } else {
-            dispatch(updatePost(newPost));
+            dispatch(updatePost(formData));
             history.push('/');
         }
         
     }
 
     const handleFile = ({ currentTarget }) => {
-        // const url = currentTarget;
-        // if (url) {
-        //     setPhotoUrl(url);
-        // }
         const file = currentTarget.files[0];
         setPhotoFile(file);
         if (file) {
@@ -92,6 +90,8 @@ export default function PostForm() {
                                 // onChange={(e) => setNewPost(e.target.value)}
                                 required
                             ></textarea>
+                            <input type="file" onChange={handleFile} />
+
                         </label>
                         <button className='post-button' type='submit' >{buttonText}</button>
                     </div>

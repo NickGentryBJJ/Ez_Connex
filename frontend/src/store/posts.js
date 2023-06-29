@@ -45,21 +45,17 @@ export const fetchPost = postId => async (dispatch) => {
     }
 };
 
-export const createPost = post => async (dispatch) => {
-    
-    const response = await csrfFetch(`/api/posts/`, {
+export const createPost = formData => async (dispatch) =>{
+    const response = await csrfFetch(`/api/posts`,{
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post)
-    });
-
-    if (response.ok) {
-        const post = await response.json();
-        dispatch(receivePost(post));
+        body: formData
+        })
+    if(response.ok){
+        const post = await response.json()
+        dispatch(receivePost(post))
+        return post;
     }
-};
+}
 
 export const updatePost = post => async (dispatch) => {
     const response = await csrfFetch(`/api/posts/${post.id}`, {

@@ -34,22 +34,23 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <>
+    <div className="profile-menu-wrapper">
       <button className="prof" onClick={openMenu}>
         <img className='nav-profile-pic' src={sessionUser.photo}/>
       </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.email}</li>
-          <li>{user.firstName}</li>
-          <li>{user.title}</li>
-          <li><NavLink to='/'><IoMdHome /></NavLink></li>
-          <li><NavLink to='/posts'><IoMdCreate /></NavLink></li>
-          
-            <button onClick={logout}>Log Out</button>
-        </ul>
-      )}
-    </>
+      <div className="profile-menu-container">
+        {showMenu && (
+          <ul className="profile-dropdown">
+            <li>{user.email}</li>
+            <li>{user.firstName}</li>
+            <li>{user.title}</li>
+            <li><NavLink to='/'><IoMdHome /></NavLink></li>
+            <li><NavLink to='/posts'><IoMdCreate /></NavLink></li>            
+              <button onClick={logout}>Log Out</button>
+          </ul>
+        )}
+      </div>
+    </div>
   );
 }
 
