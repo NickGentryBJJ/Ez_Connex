@@ -91,7 +91,7 @@
     # 3
     artorias.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/ARTORIAS+2.jpg'), filename: 'ARTORIAS+2.jpg')
     # 4
-    solair.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/SOLAIRE.jpg'), filename: 'SOLAIRE.jpg')
+    solair.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/solair.png'), filename: 'solair.png')
     # 5
     gwyndolin.photo.attach(io: URI.open('https://ezconnex-dev.s3.us-west-1.amazonaws.com/gwyndolin.png'), filename: 'gwyndolin.png')
     # 6
