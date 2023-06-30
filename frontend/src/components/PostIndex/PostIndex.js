@@ -7,6 +7,7 @@ import { NavLink, Redirect } from 'react-router-dom/cjs/react-router-dom';
 import ProfileMain from '../ProfileMain/ProfileMain';
 import AboutEz from '../AboutEz/AboutEz';
 import { fetchComments } from '../../store/comments';
+import ConnectWithMe from '../ConnectWithMe/ConnectWithMe';
 
 
 export default function PostIndex() {
@@ -29,7 +30,13 @@ const posts = [...useSelector(getPosts)].reverse()
     return (
         <>  
             <div className='index-wrapper'>
-                <ProfileMain user={sessionUser}/>
+                <div className='left-side'>
+                 <ProfileMain user={sessionUser}/>
+                <ConnectWithMe />   
+                </div>
+                
+                
+
                 <ul className='index-information'>
                     <div className='create-button-wrapper'>
                         <div className='profile-pic-wrapper'>

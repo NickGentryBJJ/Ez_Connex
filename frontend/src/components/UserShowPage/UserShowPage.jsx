@@ -19,6 +19,8 @@ const UserShowPage = () => {
 
     
     return ( user ? 
+      
+        <>
         <div className="user-show-wrapper">
             <ul className="user-show-container">
                 <li><img className="prof-pic-user-show" src={user.user.photo}/></li>
@@ -27,6 +29,10 @@ const UserShowPage = () => {
                 <li className='user-show-info-bio'>Do not reject help from others if you want to grow!</li>
             </ul>
         </div>
+        <div className='user-post-index'>
+            
+        </div>
+        </>
         : null 
     )
 }

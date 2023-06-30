@@ -1,7 +1,7 @@
 .profile-main-wrapper{
     height: 80%;
-    width: 17%;
-    margin-right: 6%;
+    width: min-content;
+    margin-right: 4%;
     margin-left: 4%;
     display: flex;
     background-color: white;
@@ -23,16 +23,22 @@
 .prof-pic-main {
     width: 5rem;
     border-radius: 50%;
-    
+    margin-bottom: 20%;
 }
 
 .profile-main-name {
     font-weight: 600;
     font-size: 20px;
     cursor: pointer;
+    margin-bottom: 10%;
 }
 .profile-main-title {
     padding: 10px;
     font-size: 16px;
     color: rgb(132, 132, 132);
+    margin-bottom: 20%;
+}
+
+.desc {
+    margin-bottom: 20%;
 }

@@ -16,7 +16,7 @@ const ProfileMain = ({user}) => {
                 <li className="prof-pic-li"><img className="prof-pic-main" src={user.photo}/></li>
                 <li onClick={handleUserName} className="profile-main-name">{user.firstName}</li>
                 <li className='profile-main-title'>{user.title}</li>
-                <li>Do not reject help from others if you want to grow!</li>
+                <li className='desc'>Do not reject help from others if you want to grow!</li>
             </ul>
         </div>
     )
