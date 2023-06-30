@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from '../../store/session';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import UserPostIndex from '../PostIndex/UserPostIndex';
 
 
 
@@ -29,9 +30,9 @@ const UserShowPage = () => {
                 <li className='user-show-info-bio'>Do not reject help from others if you want to grow!</li>
             </ul>
         </div>
-        <div className='user-post-index'>
-            
-        </div>
+        {/* <div className='user-post-index'>
+            <UserPostIndex user={user}/>
+        </div> */}
         </>
         : null 
     )

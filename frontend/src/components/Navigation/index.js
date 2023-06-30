@@ -28,7 +28,7 @@ function Navigation() {
   return (
     <div className='nav-wrapper'>
       <div className='nav-left'>
-        <h1 className='logo'>EZ Connex</h1>
+        <img className='logo' src='https://ezconnex-dev.s3.us-west-1.amazonaws.com/favicon.ico'/>
       </div>
       {sessionLinks}
     </div>
