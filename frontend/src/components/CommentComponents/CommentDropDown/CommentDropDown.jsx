@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch} from 'react-redux';
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { NavLink } from 'react-router-dom';
 import { deleteComment } from '../../../store/comments';
 import './CommentDropDown.css'
 
@@ -34,8 +33,8 @@ function CommentDropDown({ comment }) {
         </button>
         {showMenu && (
             <ul className="comment-mod-dropdown">
-            <li className="comment-mod-button"><NavLink to={`/comments/${comment.id}`}><button className="edit-button">Edit</button></NavLink> </li> 
-            <li className="comment-mod-button"><button className="delete-comment-button" onClick={() => dispatch(deleteComment(comment.id))}>Delete</button></li>
+                <li className="comment-mod-button"><button className="edit-button">Edit</button></li> 
+                <li className="comment-mod-button"><button className="delete-comment-button" onClick={() => dispatch(deleteComment(comment.id))}>Delete</button></li>
             </ul>
         )}
         </>
