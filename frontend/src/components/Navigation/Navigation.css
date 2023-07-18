@@ -1,5 +1,5 @@
 .nav-wrapper {
-  position: absolute;
+  position: fixed;
   width: 98.5vw;
   flex-direction: row;
   display: flex;

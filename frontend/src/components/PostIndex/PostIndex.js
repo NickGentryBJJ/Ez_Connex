@@ -31,7 +31,7 @@ const posts = [...useSelector(getPosts)].reverse()
         <>  
             <div className='index-wrapper'>
                 <div className='left-side'>
-                 <ProfileMain user={sessionUser}/>
+                <ProfileMain user={sessionUser}/>
                 <ConnectWithMe />   
                 </div>
                 
