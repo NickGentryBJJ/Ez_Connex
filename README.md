@@ -1,11 +1,11 @@
 # Welcome to Ez Connex!
 
-Feel free to check out our live site! [Live Site Link](https://ezconnex.onrender.com/)
+Feel free to check out my live site! [Live Site Link](https://ezconnex.onrender.com/)
 
 # Background
 
 Ez Connex is a professional social media web application to help build connections and find work.
-<!-- myFridge is an original web app designed for when you cannot decide what to cook!  Once logged in you can add ingredients to your very own virtual fridge!  From this fridge, you can select the ingredients you would like to use and with the click of a button generate three unique recipes that use the selected ingredients.  If you like a recipe, you can then save the recipe to refer back to in the future.  If you thought of any way to improve upon one of your saved recipes, you can also add a note to each saved recipe. -->
+
 
 # Functionality & MVPs
 Ez Connex comes with  core features:
