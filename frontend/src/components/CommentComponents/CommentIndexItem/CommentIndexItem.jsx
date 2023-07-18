@@ -1,7 +1,9 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import "./CommentIndexItem.css";
+import CommentDropDown from "../CommentDropDown/CommentDropDown";
 
 export default function CommentIndexItem ({comment}) {
+    
     
     const history = useHistory();
     const handleUserName = () => {
@@ -18,6 +20,9 @@ export default function CommentIndexItem ({comment}) {
                 <span className="user-title">{comment.user.title}</span>
             </div>
                 <span className="user-comment">{comment.body}</span>
+            </div>
+            <div>
+                <CommentDropDown comment={comment}/>
             </div>
         </div>
     )

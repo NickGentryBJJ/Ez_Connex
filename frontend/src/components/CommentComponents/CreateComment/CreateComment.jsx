@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as commentActions from "../../store/comments"
+import * as commentActions from "../../../store/comments"
 import './CreateComent.css'
 import CommentIndex from "../CommentIndex/CommentIndex";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";

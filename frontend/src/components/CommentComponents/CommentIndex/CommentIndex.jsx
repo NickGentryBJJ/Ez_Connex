@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import * as commentActions from '../../store/comments'
+import * as commentActions from '../../../store/comments'
 import CommentIndexItem from "../CommentIndexItem/CommentIndexItem";
 import "./CommentIndex.css"
 

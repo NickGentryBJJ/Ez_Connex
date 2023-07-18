@@ -56,7 +56,22 @@ export const createComment = comment => async (dispatch) => {
     }
 }
 
+export const updateComment = (comment) => async (dispatch) => {
+    const response = await csrfFetch(`/api/comments/${comment.id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(comment)
+    })
+    if (response.ok) {
+        const comment = await response.json();
+        dispatch(receiveComments(comment));
+    }
+}
+
 export const deleteComment = commentId => async (dispatch) => {
+    
     const response = await csrfFetch (`/api/comments/${commentId}`, {
         method: 'DELETE'
     });
@@ -78,7 +93,7 @@ const commentsReducer = (state={}, action) => {
         case RECEIVE_COMMENT:
             return {...state, [action.comment.id]: action.comment };
         case REMOVE_COMMENT:
-            delete nextState.comments[action.commentId]
+            delete nextState[action.commentId]
             return nextState;
         default:
             return nextState;
