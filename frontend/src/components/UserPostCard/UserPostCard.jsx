@@ -1,4 +1,4 @@
-import PostDropDown from '../PostDropDown/PostDropDown'
+import PostDropDown from '../Posts/PostDropDown/PostDropDown';
 import './UserPostCard.css'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'

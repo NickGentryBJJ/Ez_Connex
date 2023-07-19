@@ -3,9 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
-import PostIndex from './components/PostIndex/PostIndex';
-import CreatePostModal from './components/CreatePostModal/CreatePostModal';
-import PostForm from './components/PostForm/PostForm';
+import PostIndex from './components/Posts/PostIndex/PostIndex';
+import CreatePostModal from './components/Posts/CreatePostModal/CreatePostModal';
+import PostForm from './components/Posts/PostForm/PostForm';
 import UserShowPage from './components/UserShowPage/UserShowPage';
 
 

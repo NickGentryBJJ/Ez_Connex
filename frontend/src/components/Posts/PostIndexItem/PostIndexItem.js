@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './PostIndexItem.css'
-import UserPostCard from '../UserPostCard/UserPostCard';
-import CreateComment from '../CommentComponents/CreateComment/CreateComment';
+import UserPostCard from '../../UserPostCard/UserPostCard';
+import CreateComment from '../../Comments/CreateComment/CreateComment';
 
 
 

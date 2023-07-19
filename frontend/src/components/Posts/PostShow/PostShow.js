@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPost, fetchPost } from '../../store/posts';
+import { getPost, fetchPost } from '../../../store/posts';
 
 export default function PostShow() {
     const { postId } = useParams();

@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import  PostIndexItem  from '../PostIndexItem/PostIndexItem';
-import { getPosts, fetchPosts } from '../../store/posts';
+import { getPosts, fetchPosts } from '../../../store/posts';
 import './PostIndex.css'
 import { NavLink, Redirect } from 'react-router-dom/cjs/react-router-dom';
-import ProfileMain from '../ProfileMain/ProfileMain';
-import AboutEz from '../AboutEz/AboutEz';
-import { fetchComments } from '../../store/comments';
-import ConnectWithMe from '../ConnectWithMe/ConnectWithMe';
+import ProfileMain from '../../ProfileMain/ProfileMain';
+import AboutEz from '../../AboutEz/AboutEz';
+import { fetchComments } from '../../../store/comments';
+import ConnectWithMe from '../../ConnectWithMe/ConnectWithMe';
+
 
 
 export default function PostIndex() {
@@ -32,7 +33,7 @@ const posts = [...useSelector(getPosts)].reverse()
             <div className='index-wrapper'>
                 <div className='left-side'>
                 <ProfileMain user={sessionUser}/>
-                <ConnectWithMe />   
+                <ConnectWithMe/>
                 </div>
                 
                 

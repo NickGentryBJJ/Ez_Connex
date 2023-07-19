@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch} from 'react-redux';
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { deleteComment } from '../../../store/comments';
-import './CommentDropDown.css'
+import { NavLink } from 'react-router-dom';
+import { deletePost } from "../../../store/posts";
+import './PostDropDown.css'
 
-function CommentDropDown({ comment }) {
+function PostDropDown({ post }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
 
@@ -28,17 +29,17 @@ function CommentDropDown({ comment }) {
 
     return (
         <>
-        <button className="comment-mod" onClick={openMenu}>
+        <button className="post-mod" onClick={openMenu}>
             <BiDotsHorizontalRounded/>
         </button>
         {showMenu && (
-            <ul className="comment-mod-dropdown">
-                <li className="comment-mod-button"><button className="edit-button">Edit</button></li> 
-                <li className="comment-mod-button"><button className="delete-comment-button" onClick={() => dispatch(deleteComment(comment.id))}>Delete</button></li>
+            <ul className="post-mod-dropdown">
+            <li className="mod-button"><NavLink to={`/posts/${post.id}`}><button className="edit-button">Edit</button></NavLink> </li> 
+            <li className="mod-button"><button className="delete-button" onClick={() => dispatch(deletePost(post.id))}>Delete</button></li>
             </ul>
         )}
         </>
     );
 }
 
-export default CommentDropDown;
+export default PostDropDown;

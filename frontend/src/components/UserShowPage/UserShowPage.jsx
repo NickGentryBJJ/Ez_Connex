@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from '../../store/session';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import UserPostIndex from '../PostIndex/UserPostIndex';
+import UserPostIndex from '../Posts/PostIndex/UserPostIndex';
 
 
 

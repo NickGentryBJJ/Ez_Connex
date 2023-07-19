@@ -13,6 +13,11 @@
     object-fit: cover;
 }
 
+.top-of-comment {
+    display: flex;
+    justify-content: space-between;
+}
+
 .user-first-last-name {
     font-weight: 500;
     font-size: 15px;
@@ -46,4 +51,18 @@
 .user-comment {
     margin-top: 10px;
     font-size: 14px;
+}
+
+.comment-mod {
+    border: none;
+    height: 5px;
+}
+.comment-drop-down-container{
+    height: 5px;
+}
+
+.comment-mod-dropdown{
+    position: absolute;
+    background: white;
+    padding: 8px;
 }

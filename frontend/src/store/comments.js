@@ -57,6 +57,8 @@ export const createComment = comment => async (dispatch) => {
 }
 
 export const updateComment = (comment) => async (dispatch) => {
+    debugger 
+    if (comment.id === comment.id) {}
     const response = await csrfFetch(`/api/comments/${comment.id}`, {
         method: 'PATCH',
         headers: {
@@ -71,6 +73,7 @@ export const updateComment = (comment) => async (dispatch) => {
 }
 
 export const deleteComment = commentId => async (dispatch) => {
+    debugger
     
     const response = await csrfFetch (`/api/comments/${commentId}`, {
         method: 'DELETE'

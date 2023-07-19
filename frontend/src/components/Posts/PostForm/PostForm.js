@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPost, fetchPost, createPost, updatePost} from '../../store/posts'
+import { getPost, fetchPost, createPost, updatePost} from '../../../store/posts'
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import './PostForm.css'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';

@@ -6,6 +6,8 @@
 
 .index-information {
     margin-left: 5%;
+    max-width: 46%;
+    min-width: 46%;
 }
 
 .left-side {
