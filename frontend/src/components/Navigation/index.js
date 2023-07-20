@@ -30,11 +30,12 @@ function Navigation() {
     <div className='nav-wrapper'>
       <div className='nav-left'>
         <img className='logo' src='https://ezconnex-dev.s3.us-west-1.amazonaws.com/favicon.ico'/>
+        <div className='search-bar'>
+          <Searchbar />
+        </div>
       </div>
-      <div className='search-bar'><Searchbar /></div>
       {sessionLinks}
     </div>
-      
   );
 }
 
