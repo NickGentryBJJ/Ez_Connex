@@ -19,7 +19,6 @@ const Searchbar = () => {
         setQuery(searchName);
             let tempArr = [];
             users.forEach((user) => {
-                console.log(user)
                 if(user.firstName.toLowerCase().includes(searchName.toLowerCase())) tempArr.push(user)
         })
         newFilter = tempArr;

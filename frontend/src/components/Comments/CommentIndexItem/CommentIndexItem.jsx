@@ -36,7 +36,6 @@ export default function CommentIndexItem ({comment}) {
     }
 
     const handleSubmit = (e) => {
-        debugger
         e.preventDefault();
         const userComment = {
             body: newComment,

@@ -49,7 +49,7 @@ export const signup = (formData) => async (dispatch) => {
       body: formData
     });
     const data = await response.json();
-    debugger
+    
     storeCurrentUser(data.user);
     dispatch(setSession(data.user));
     return response;
