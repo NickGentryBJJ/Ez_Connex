@@ -8,6 +8,7 @@ import ProfileMain from '../../ProfileMain/ProfileMain';
 import AboutEz from '../../AboutEz/AboutEz';
 import { fetchComments } from '../../../store/comments';
 import ConnectWithMe from '../../ConnectWithMe/ConnectWithMe';
+import { fetchUsers } from '../../../store/users';
 
 
 
@@ -21,6 +22,7 @@ const posts = [...useSelector(getPosts)].reverse()
     useEffect(() => {
         dispatch(fetchPosts())
         dispatch(fetchComments())
+        dispatch(fetchUsers())
     }, [dispatch])
 
 

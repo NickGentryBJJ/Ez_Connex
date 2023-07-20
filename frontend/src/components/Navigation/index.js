@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import Searchbar from '../SearchBar/searchbar';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -30,6 +31,7 @@ function Navigation() {
       <div className='nav-left'>
         <img className='logo' src='https://ezconnex-dev.s3.us-west-1.amazonaws.com/favicon.ico'/>
       </div>
+      <div className='search-bar'><Searchbar /></div>
       {sessionLinks}
     </div>
       
