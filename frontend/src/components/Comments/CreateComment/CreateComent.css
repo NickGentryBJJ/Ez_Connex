@@ -70,3 +70,8 @@
     cursor: pointer;
 }
 
+.create-new-comment-button:hover{
+    background-color: #004182;
+}
+
+

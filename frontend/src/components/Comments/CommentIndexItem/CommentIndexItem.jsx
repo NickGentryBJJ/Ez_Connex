@@ -80,9 +80,9 @@ export default function CommentIndexItem ({comment}) {
                                             <BiDotsHorizontalRounded/>
                                         </button>
                                         {showMenu && (
-                                            <ul className="comment-mod-dropdown">
-                                                <li className="comment-mod-button"><button onClick={handleEdit} className="edit-button">Edit</button></li> 
-                                                <li className="comment-mod-button"><button className="delete-comment-button" onClick={() => dispatch(deleteComment(comment.id))}>Delete</button></li>
+                                            <ul focused="true" className="comment-mod-dropdown">
+                                                <li className="edit-comment-button"onClick={handleEdit}>Edit</li> 
+                                                <li className="delete-comment-button" onClick={() => dispatch(deleteComment(comment.id))}>Delete</li>
                                             </ul>
                                         )}
                                     </div>
@@ -93,7 +93,7 @@ export default function CommentIndexItem ({comment}) {
             {editing ? (
                     <form onSubmit={handleSubmit}>
                         <div
-                            className="editable-comment"
+                            className="user-comment"
                             contentEditable
                             onInput={(e) => {
                                 setNewComment(e.target.innerText)
