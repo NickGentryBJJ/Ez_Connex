@@ -42,7 +42,7 @@
 .create-post-button {
     color: grey;
     font-weight: 50;
-    width: 450px;
+    width: 35vw;
     margin: 0.4rem 0;
     font-size: 1rem;
     max-width: none;
@@ -53,6 +53,7 @@
     height: 40px;
     display: -webkit-inline-box;
     background-color: white;
+    cursor: pointer;
 }
 
 .create-button-wrapper {

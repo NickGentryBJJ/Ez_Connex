@@ -33,7 +33,8 @@
 
 .comment-form {
     margin-bottom: 15px;
-    width: fit-content;
+    width: 90%;
+    
 }
 
 .comment-user-photo-container {
@@ -82,5 +83,7 @@
 .comment-counter {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    color: rgb(149, 149, 149);
+    font-size: 13px;
 }

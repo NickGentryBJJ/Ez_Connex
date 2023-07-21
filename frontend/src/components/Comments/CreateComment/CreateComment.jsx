@@ -7,17 +7,29 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
+
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [newComment, setNewComment] = useState('');
     const userId = useSelector(state => state.session.user.id)
     const postId = post.id;
-    const comments = post.comments;
+    let comments = post.comments;
+    const [commmentCount, setCommentCount] = useState(comments.length)
+    const [com, setCom] = useState(comm(comments))
 
+    function comm(comments) {
+        if (comments.length === 1) {
+            return "Comment"
+        } else {
+            return "Comments"
+        }
+        
+    }
     
-
+    
     const handleSubmit = (e) => {
+       
         e.preventDefault();
         const userComment = {
             body: newComment,
@@ -27,10 +39,19 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
         dispatch(commentActions.createComment(userComment))
         setNewComment('')
         history.push('/');
+        setCommentCount((comments.length + 1))
+        if ((comments.length + 1) === 1) {
+            setCom("Comment")
+        } else {
+            setCom("Comments")
+        }
+        
     }
 
+    
+    
     return (
-    <>  
+        <>  
         <div className="comment-create-wrapper">
             <div className="comment-button-wrapper">
                 <button
@@ -41,7 +62,7 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
             </div>
             {!showCommentForm && (
                 <span className='comment-counter'>
-                    {comments.length} Comments
+                    {commmentCount} {com}
                 </span>
             )}
         </div>

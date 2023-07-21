@@ -10,7 +10,6 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 export default function PostIndexItem({post}) {
     const [showCommentForm, setShowCommentForm] = useState(false)
     const dispatch = useDispatch();
-    const comments = post.comments;
     
 
     if (post.body) {
