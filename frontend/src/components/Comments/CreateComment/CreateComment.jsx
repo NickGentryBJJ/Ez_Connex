@@ -12,7 +12,8 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
     const sessionUser = useSelector(state => state.session.user);
     const [newComment, setNewComment] = useState('');
     const userId = useSelector(state => state.session.user.id)
-    const postId = post.id
+    const postId = post.id;
+    const comments = post.comments;
 
     
 
@@ -29,13 +30,20 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
     }
 
     return (
-    <>
-        <div className="comment-button-wrapper">
-            <button
-                onClick={() => setShowCommentForm(!showCommentForm)}
-                className="comment-button"
-                ><span className="create-commment-text">Comment</span>
-            </button>
+    <>  
+        <div className="comment-create-wrapper">
+            <div className="comment-button-wrapper">
+                <button
+                    onClick={() => setShowCommentForm(!showCommentForm)}
+                    className="comment-button"
+                    ><span className="create-commment-text">Comment</span>
+                </button>
+            </div>
+            {!showCommentForm && (
+                <span className='comment-counter'>
+                    {comments.length} Comments
+                </span>
+            )}
         </div>
         <div className="new-comment-container">
             {showCommentForm && (

@@ -74,6 +74,7 @@ export default function CommentIndexItem ({comment}) {
                         <div className="commenter-info">
                             <div className="top-of-comment">
                                 <span onClick={handleUserName} className="user-first-last-name">{comment.user.firstName} {comment.user.lastName}</span>
+                                {sessionUser.id === comment.userId && (
                                     <div className="comment-drop-down-container">
                                         <button className="comment-mod" onClick={openMenu}>
                                             <BiDotsHorizontalRounded/>
@@ -85,6 +86,7 @@ export default function CommentIndexItem ({comment}) {
                                             </ul>
                                         )}
                                     </div>
+                                )}
                                 </div>
                             <span className="user-title">{comment.user.title}</span>
                         </div>

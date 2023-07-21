@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PostIndexItem.css'
 import UserPostCard from '../../UserPostCard/UserPostCard';
 import CreateComment from '../../Comments/CreateComment/CreateComment';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 
 
 export default function PostIndexItem({post}) {
     const [showCommentForm, setShowCommentForm] = useState(false)
+    const dispatch = useDispatch();
+    const comments = post.comments;
+    
+
     if (post.body) {
         if (post.photo) {
             return (
@@ -19,13 +25,6 @@ export default function PostIndexItem({post}) {
                             <div className='li-post-photo'><img className='post-photo' src={`${post.photo}`}/></div>
                         </div>
                     </div>
-                    {/* <ul className='photo-post-info-container'>
-                    <li><UserPostCard post={post}/></li>
-                        <li className='photo-post-body'>{post.body}</li>
-                        <div className='photo-container'>
-                            <li className='li-post-photo'><img className='post-photo' src={`${post.photo}`}/></li>
-                        </div>
-                    </ul> */}
                     <div className='photo-post-create-comment'>
                         <CreateComment post={post} showCommentForm={showCommentForm} setShowCommentForm={setShowCommentForm}/>
                     </div>
@@ -35,13 +34,17 @@ export default function PostIndexItem({post}) {
         }    else if (!post.photo) {
                     return (
                         <div className='post-wrapper'>
-                            <ul className='post-container'>
-                                <li><UserPostCard post={post}/></li>
-                                <li className='post-body'>{post.body}</li>
-                            <div className='post-create-comment'>
-                                <CreateComment post={post} showCommentForm={showCommentForm} setShowCommentForm={setShowCommentForm}/>
+                            <div className='post-container'>
+                                <div>
+                                    <UserPostCard post={post}/>
+                                </div>
+                                <div className='post-body'>
+                                    {post.body}
+                                </div>
+                                <div className='photo-post-create-comment'>
+                                    <CreateComment post={post} showCommentForm={showCommentForm} setShowCommentForm={setShowCommentForm}/>
+                                </div>
                             </div>
-                            </ul>
                         </div>
                         
                     )
