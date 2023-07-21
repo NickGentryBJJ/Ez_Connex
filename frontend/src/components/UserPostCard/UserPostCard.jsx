@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function UserPostCard({post}) {
     const history = useHistory();
+    
     const handleUserName = () => {
         history.push(`/users/${post.userId}`)
     }

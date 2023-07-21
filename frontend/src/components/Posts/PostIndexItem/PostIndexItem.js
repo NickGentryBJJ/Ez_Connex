@@ -12,13 +12,20 @@ export default function PostIndexItem({post}) {
             return (
             <div className='photo-post-wrapper'>
                 <div className='photo-post-container'>
-                    <ul className='photo-post-info-container'>
+                    <div className='photo-post-info-container'>
+                    <div><UserPostCard post={post}/></div>
+                        <div className='photo-post-body'>{post.body}</div>
+                        <div className='photo-container'>
+                            <div className='li-post-photo'><img className='post-photo' src={`${post.photo}`}/></div>
+                        </div>
+                    </div>
+                    {/* <ul className='photo-post-info-container'>
                     <li><UserPostCard post={post}/></li>
                         <li className='photo-post-body'>{post.body}</li>
                         <div className='photo-container'>
                             <li className='li-post-photo'><img className='post-photo' src={`${post.photo}`}/></li>
                         </div>
-                    </ul>
+                    </ul> */}
                     <div className='photo-post-create-comment'>
                         <CreateComment post={post} showCommentForm={showCommentForm} setShowCommentForm={setShowCommentForm}/>
                     </div>

@@ -4,15 +4,20 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import Searchbar from '../SearchBar/searchbar';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
-
+  const history = useHistory();
+  let searchbar;
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <ProfileButton user={sessionUser} />
     );
+    searchbar = (
+      <Searchbar />
+    )
   } else {
     sessionLinks = (
       <div className='nav-right'>
@@ -29,9 +34,9 @@ function Navigation() {
   return (
     <div className='nav-wrapper'>
       <div className='nav-left'>
-        <img className='logo' src='https://ezconnex-dev.s3.us-west-1.amazonaws.com/favicon.ico'/>
+        <img onClick={() => {history.push('/')}} className='logo' src='https://ezconnex-dev.s3.us-west-1.amazonaws.com/favicon.ico'/>
         <div className='search-bar'>
-          <Searchbar />
+          {searchbar}
         </div>
       </div>
       {sessionLinks}

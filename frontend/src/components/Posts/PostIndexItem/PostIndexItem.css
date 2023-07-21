@@ -58,6 +58,10 @@
     
 }
 
+.photo-post-info-container {
+    min-width: 100%;
+}
+
 .photo-post-body {
     padding-top: 3%;
     max-width: 85%;
@@ -84,7 +88,9 @@
 
 .post-photo {
     width: 100%;
-    
+    min-width: 100%;
+    max-height: 60vh;
+    min-height: 60vh;
 }
 
 .photo-post-create-comment {

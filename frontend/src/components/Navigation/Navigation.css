@@ -6,6 +6,7 @@
   height: 10vh;
   background-color: white;
   justify-content: space-between;
+  z-index: 100;
 }
 
 .nav-profile-pic {
@@ -15,7 +16,8 @@
 }
 
 .prof {
-  left: 5%;
+  position: absolute;
+  left: 94%;
   border-radius: 50%;
   border: none;
   background-color: white;
@@ -42,6 +44,9 @@
   font-weight: 600;
 }
 
+.logo {
+  cursor: pointer;
+}
 
 .join {
   background-color: white;
@@ -101,7 +106,9 @@ svg {
     flex-direction: row;
     height: 150px;
     margin-right: 20px;
-
+    position: absolute;
+    left: 80%;
+    top: 60%;
   }
 
   .logout-button {

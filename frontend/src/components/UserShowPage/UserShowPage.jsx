@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from '../../store/session';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import UserPostIndex from '../Posts/PostIndex/UserPostIndex';
+import { fetchUsers } from '../../store/users';
+import { fetchPosts } from '../../store/posts';
+import { fetchComments } from '../../store/comments';
+
 
 
 
@@ -13,14 +16,15 @@ const UserShowPage = () => {
     const { userId } = useParams();
     const user = useSelector(state => state.session.selectedUser);
     
-
     useEffect(() => {
         dispatch(getUser(userId))
+        dispatch(fetchUsers())
+        dispatch(fetchPosts())
+        dispatch(fetchComments())
     }, [dispatch, userId])
 
     
     return ( user ? 
-      
         <>
         <div className="user-show-wrapper">
             <ul className="user-show-container">
@@ -31,7 +35,7 @@ const UserShowPage = () => {
             </ul>
         </div>
         {/* <div className='user-post-index'>
-            <UserPostIndex user={user}/>
+            {<UserPostIndex user={user}/>}
         </div> */}
         </>
         : null 
