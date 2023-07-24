@@ -8,13 +8,25 @@ import * as commentActions from "../../../store/comments"
 
 
 
-export default function CommentIndexItem ({comment}) {
+export default function CommentIndexItem ({comment, post}) {
     const sessionUser = useSelector(state => state.session.user);
     const [editing, setEditing] = useState(false)
     const [newComment, setNewComment] = useState('')
     const history = useHistory();
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+    let comments = post.comments
+    const [commmentCount, setCommentCount] = useState(comments.length)
+    const [com, setCom] = useState(comm(comments))
+
+    function comm(comments) {
+        if (comments.length === 1) {
+            return "Comment"
+        } else {
+            return "Comments"
+        }
+    }
+    
 
     const handleUserName = () => {
         history.push(`/users/${comment.userId}`)
@@ -27,8 +39,8 @@ export default function CommentIndexItem ({comment}) {
     const handleEdit = () => {
         setEditing(true)
     }
-    const finishEdit = () => {
-        setEditing(false)
+    const handleDelete = () => {
+        dispatch(deleteComment(comment.id))  
     }
 
     const handleCancel = () => {
@@ -82,7 +94,7 @@ export default function CommentIndexItem ({comment}) {
                                         {showMenu && (
                                             <ul focused="true" className="comment-mod-dropdown">
                                                 <li className="edit-comment-button"onClick={handleEdit}>Edit</li> 
-                                                <li className="delete-comment-button" onClick={() => dispatch(deleteComment(comment.id))}>Delete</li>
+                                                <li className="delete-comment-button" onClick={handleDelete}>Delete</li>
                                             </ul>
                                         )}
                                     </div>

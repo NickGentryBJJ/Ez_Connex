@@ -10,7 +10,7 @@ export default function CommentIndex({post}) {
 
     return (
         <div className="comment-item">
-            {allComments.map((comment) => <CommentIndexItem key={comment.id} comment={comment} />)}
+            {allComments.map((comment) => <CommentIndexItem key={comment.id} comment={comment} post={post} />)}
         </div>
     );
 };

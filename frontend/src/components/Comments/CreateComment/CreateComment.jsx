@@ -29,7 +29,6 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
     
     
     const handleSubmit = (e) => {
-       
         e.preventDefault();
         const userComment = {
             body: newComment,
@@ -37,10 +36,11 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
             postId: postId
         } 
         dispatch(commentActions.createComment(userComment))
+        comments.push(userComment);
         setNewComment('')
         history.push('/');
-        setCommentCount((comments.length + 1))
-        if ((comments.length + 1) === 1) {
+        setCommentCount(comments.length)
+        if ((comments.length) === 1) {
             setCom("Comment")
         } else {
             setCom("Comments")
