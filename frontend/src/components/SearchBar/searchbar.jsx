@@ -73,7 +73,9 @@ const Searchbar = () => {
             }  */}
             {searching === true && filteredUsers.length === 0 ? 
             <div className='search-dropdown'>
-                No Users Found
+                <div className='no-user-found'>
+                    No Users Found
+                </div>
             </div>
         
         : <div className='search-dropdown'>
