@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
-    debugger
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);

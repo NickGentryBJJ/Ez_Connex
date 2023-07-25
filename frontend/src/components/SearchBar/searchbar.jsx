@@ -14,7 +14,7 @@ const Searchbar = () => {
     let newFilter = [];
     const dispatch = useDispatch();
     const searchDropDown = document.querySelector(".search-dropdown")
-    
+    // searchDropDown.style.paddingTop = "1%"
     useEffect(() => {
         const searchDropDown = document.querySelector(".search-dropdown");
         searchDropDown.style.visibility = ("hidden")
