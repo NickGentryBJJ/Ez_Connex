@@ -7,14 +7,15 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
-
+    debugger
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [newComment, setNewComment] = useState('');
     const userId = useSelector(state => state.session.user.id)
     const postId = post.id;
-    let comments = post.comments;
+    let comments = useSelector(commentActions.getPostComments(postId));
+   
     const [commmentCount, setCommentCount] = useState(comments.length)
     const [com, setCom] = useState(comm(comments))
 
@@ -36,11 +37,11 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
             postId: postId
         } 
         dispatch(commentActions.createComment(userComment))
-        comments.push(userComment);
         setNewComment('')
         history.push('/');
+        comments.push(userComment)
         setCommentCount(comments.length)
-        if ((comments.length) === 1) {
+        if (comments.length === 1) {
             setCom("Comment")
         } else {
             setCom("Comments")
