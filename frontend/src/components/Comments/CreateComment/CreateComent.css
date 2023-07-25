@@ -83,7 +83,7 @@
 .comment-counter {
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     color: rgb(149, 149, 149);
     font-size: 13px;
 }

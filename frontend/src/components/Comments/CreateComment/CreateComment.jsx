@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as commentActions from "../../../store/comments"
 import './CreateComent.css'
@@ -14,7 +14,6 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
     const userId = useSelector(state => state.session.user.id)
     const postId = post.id;
     let comments = useSelector(commentActions.getPostComments(postId));
-   
     const [commmentCount, setCommentCount] = useState(comments.length)
     const [com, setCom] = useState(comm(comments))
 
@@ -71,7 +70,7 @@ const CreateComment = ({ post, showCommentForm, setShowCommentForm }) => {
                 <div className="comment-form-container">
                     <form onSubmit={handleSubmit} className="comment-form">
                         <div className="comment-user-photo-container">
-                            <img className="comment-user-photo" src={sessionUser.photo} />
+                            <img className="comment-user-photo" src={sessionUser.photo} alt="profile-pic" />
                             <textarea
                                 placeholder='Add a comment...'
                                 className='create-comment-text'

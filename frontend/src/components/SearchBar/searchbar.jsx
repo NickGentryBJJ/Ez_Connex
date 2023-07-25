@@ -60,24 +60,12 @@ const Searchbar = () => {
                 value = {query}
             />
         </label>
-            {/* {filteredUsers.length !== 0 &&
-                <div className='search-dropdown'>
-                    {filteredUsers.slice(0,10).map((user) => 
-                        <div onClick={() => history.push(`/users/${user.id}`)} className="searched-user"> 
-                            <img onClick={handleClick} className='prof-pic' src={user.photo} />
-                            <div onClick={handleClick} className='searched-user-name'>
-                                {user.firstName} {user.lastName} 
-                            </div>
-                        </div>)} 
-                </div>
-            }  */}
             {searching === true && filteredUsers.length === 0 ? 
             <div className='search-dropdown'>
                 <div className='no-user-found'>
                     No Users Found
                 </div>
             </div>
-        
         : <div className='search-dropdown'>
                 {filteredUsers.slice(0,10).map((user) => 
                     <div onClick={() => history.push(`/users/${user.id}`)} className="searched-user"> 
