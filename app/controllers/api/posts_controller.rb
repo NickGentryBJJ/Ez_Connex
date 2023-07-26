@@ -19,8 +19,7 @@ class Api::PostsController < ApplicationController
     else  
         render json: {errors:@post.errors.full_messages},status: 422
     end
-
-end
+  end
 
   def create
     @posts = Post.all

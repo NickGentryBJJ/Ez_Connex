@@ -69,7 +69,7 @@ const Searchbar = () => {
         : <div className='search-dropdown'>
                 {filteredUsers.slice(0,10).map((user) => 
                     <div onClick={() => history.push(`/users/${user.id}`)} className="searched-user"> 
-                        <img onClick={handleClick} className='prof-pic' src={user.photo} />
+                        <img onClick={handleClick} className='prof-pic' src={user.photo} alt='' />
                         <div onClick={handleClick} className='searched-user-name'>
                             {user.firstName} {user.lastName} 
                         </div>
