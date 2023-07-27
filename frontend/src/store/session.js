@@ -1,4 +1,5 @@
 import csrfFetch from './csrf'
+import { RECEIVE_USER } from './users';
 export const SET_SESSION = 'session/SET_SESSION';
 export const REMOVE_SESSION = 'session/REMOVE_SESSION';
 export const SET_USER = 'session/GET_USER';
@@ -23,7 +24,8 @@ const storeCSRFToken = response => {
     if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
   }
   
-  const storeCurrentUser = user => {
+  export const storeCurrentUser = user => {
+    console.log(user)
     if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
     else sessionStorage.removeItem("currentUser");
   }
@@ -86,6 +88,7 @@ export const getUser = (userId) => async (dispatch) => {
 const initialState = { user: JSON.parse(sessionStorage.getItem("currentUser")) };
 
 const sessionReducer = (state = initialState, action) => {
+  console.log("random")
     switch (action.type) {
         case SET_SESSION:
             return { ...state, user: action.session }; 
@@ -93,6 +96,8 @@ const sessionReducer = (state = initialState, action) => {
             return { ...state, user: null }; 
         case SET_USER:
             return { ...state, selectedUser: action.payload }
+        case RECEIVE_USER:
+            return {...state, user: action.user }
         default:
             return state;
     }

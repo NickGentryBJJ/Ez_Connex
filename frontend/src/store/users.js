@@ -1,7 +1,6 @@
 import csrfFetch from './csrf'
-import { restoreSession } from './session'
 
-const RECEIVE_USER = 'users/RECEIVE_USER'
+export const RECEIVE_USER = 'users/RECEIVE_USER'
 const RECEIVE_USERS = 'users/RECEIVE_USERS'
 
 export const receiveUser = user =>({
@@ -36,15 +35,16 @@ export const fetchUsers = () => async(dispatch)=>{
 }
 
 export const updateUser = (formData, userId) => async (dispatch) => {
+    
     const response = await csrfFetch(`/api/users/${userId}`, {
         method: "PATCH",
         body: formData
     });
     const data = await response.json();
-    
+    console.log(data.user)
     dispatch(receiveUser(data.user))
+    sessionStorage.setItem("currentUser", JSON.stringify(data.user));
     return response;
-    
 };
 
 
