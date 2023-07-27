@@ -35,17 +35,18 @@ export const fetchUsers = () => async(dispatch)=>{
     dispatch(receiveUsers(data))
 }
 
-export const updateUser = (formData) => async (dispatch) => {
-    const response = await csrfFetch("/api/users", {
+export const updateUser = (formData, userId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/users/${userId}`, {
         method: "PATCH",
         body: formData
     });
-    if(response.ok) {
-        const data = await response.json();
-        dispatch(receiveUser(data.user))
-        dispatch(restoreSession(data.user))
-    }
+    const data = await response.json();
+    
+    dispatch(receiveUser(data.user))
+    return response;
+    
 };
+
 
 const usersReducer = (state={},action)=>{ 
     switch(action.type){

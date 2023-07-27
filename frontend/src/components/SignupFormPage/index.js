@@ -22,6 +22,7 @@ function SignupFormPage() {
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
+  
     e.preventDefault();
     const formData = new FormData();
     if (photoFile) {

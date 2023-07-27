@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { VscAccount } from 'react-icons/vsc';
 import { IoMdCreate, IoMdHome } from "react-icons/io";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -31,12 +30,13 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    return <Redirect to="/" />
   };
 
   return (
     <div className="profile-menu-wrapper">
       <button className="prof" onClick={openMenu}>
-        <img className='nav-profile-pic' src={sessionUser.photo}/>
+        <img className='nav-profile-pic' alt="" src={sessionUser.photo}/>
       </button>
         {showMenu && (
       <div className="profile-menu-container">
