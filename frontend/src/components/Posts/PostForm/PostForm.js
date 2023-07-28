@@ -84,11 +84,9 @@ export default function PostForm() {
                                 onInput={(e) => {
                                     setBody(e.target.value)
                                 }}
-                                // onChange={(e) => setNewPost(e.target.value)}
                                 required
                             ></textarea>
                             <input type="file" onChange={handleFile} />
-
                         </label>
                         <button className='post-button' type='submit' >{buttonText}</button>
                     </div>

@@ -78,12 +78,12 @@ const UserShowPage = () => {
         eeedit = (
         <>
             <div className="user-show-wrapper">
-                    <ul className="user-show-container">
+                    <ul className="user-show-container-po">
                         <li><img className="prof-pic-user-show" src={user.user.photo} alt=''/></li>
                         <li className='user-show-info-name'>{user.user.firstName} {user.user.lastName}</li>
                         <li className='user-show-info-title'>{user.user.title}</li>
                         <li className='user-show-info-bio'>Do not reject help from others if you want to grow!</li>
-                    <button onClick={() => {setEditing(true)}}>Edit</button>
+                    <button className='edit-user-button' onClick={() => {setEditing(true)}}>Edit</button>
                     </ul>
             </div>
         </>
@@ -132,7 +132,7 @@ const UserShowPage = () => {
                             <li className='user-show-info-bio'>
                                 Do not reject help from others if you want to grow!
                             </li>
-                            <button type="submit">Update</button>
+                            <button type="submit" className='update-user-button'>Update</button>
                         </form>
                     </div>
                 </div>
