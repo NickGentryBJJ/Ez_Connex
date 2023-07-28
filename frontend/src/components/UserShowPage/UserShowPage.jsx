@@ -60,7 +60,20 @@ const UserShowPage = () => {
     if (photoUrl) preview = <img className="preview-image-edit" src={photoUrl} alt="" />;
 
     let eeedit;
-    if (user && editing === false) {
+    if (user.user.id !== sessionUser.id) {
+        eeedit = (
+            <>
+                <div className="user-show-wrapper">
+                        <ul className="user-show-container">
+                            <li><img className="prof-pic-user-show" src={user.user.photo} alt=''/></li>
+                            <li className='user-show-info-name'>{user.user.firstName} {user.user.lastName}</li>
+                            <li className='user-show-info-title'>{user.user.title}</li>
+                            <li className='user-show-info-bio'>Do not reject help from others if you want to grow!</li>
+                        </ul>
+                </div>
+            </>
+            )
+    } else if (user && editing === false && user.user.id === sessionUser.id) {
         eeedit = (
         <>
             <div className="user-show-wrapper">
