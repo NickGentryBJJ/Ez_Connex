@@ -4,8 +4,6 @@ import { getUser } from '../../store/session';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchUsers, updateUser } from '../../store/users';
-import { fetchPosts } from '../../store/posts';
-import { fetchComments } from '../../store/comments';
 
 
 
@@ -20,10 +18,8 @@ const UserShowPage = () => {
     const [firstName, setFirstName] = useState(sessionUser.firstName);
     const [lastName, setLastName] = useState(sessionUser.lastName);
     const [title, setTitle] = useState(sessionUser.title);
-    const [email, setEmail] = useState(sessionUser.email);
     const [photoFile, setPhotoFile] = useState(sessionUser.photo);
     const [photoUrl, setPhotoUrl] = useState("");  
-    const [errors, setErrors] = useState([]);
 
     
     
@@ -33,32 +29,15 @@ const UserShowPage = () => {
     }, [dispatch, userId])
 
 
+
     const handleEdit = (e) => {
-        
         e.preventDefault();
         const formData = new FormData();
-        // if (photoFile) {
-        //     formData.append('photo', photoFile);
-        // }
+        formData.append('user[photo]', photoFile);
         formData.append('user[firstName]', firstName);
         formData.append('user[lastName]', lastName);
         formData.append('user[title]', title);
-        console.log(userId)
         return dispatch(updateUser(formData, userId))
-        // .catch(async (res) => {
-        //     setErrors([]);
-        //     let data;
-        //     try {
-        //       // .clone() essentially allows you to read the response body twice
-        //         data = await res.clone().json();
-        //     } catch {
-        //       data = await res.text(); // Will hit this case if the server is down
-        //     }
-        //     if (data?.errors) setErrors(data.errors);
-        //     else if (data) setErrors([data]);
-        //     else setErrors([res.statusText]);
-        // });
-        
     }
 
     const handleFile = ({ currentTarget }) => {
@@ -70,13 +49,17 @@ const UserShowPage = () => {
             fileReader.onload = () => setPhotoUrl(fileReader.result);
             } else setPhotoUrl(null);
     }   
+
+    let preview = null;
+    if (photoUrl) preview = <img className="preview-image" src={photoUrl} alt="" />;
+
     let eeedit;
     if (user && user.user.id !== sessionUser.id) {
         eeedit = (
         <>
             <div className="user-show-wrapper">
                     <ul className="user-show-container">
-                        <li><img className="prof-pic-user-show" src={user.user.photo}/></li>
+                        <li><img className="prof-pic-user-show" src={user.user.photo} alt=''/></li>
                         <li className='user-show-info-name'>{user.user.firstName} {user.user.lastName}</li>
                         <li className='user-show-info-title'>{user.user.title}</li>
                         <li className='user-show-info-bio'>Do not reject help from others if you want to grow!</li>
@@ -90,8 +73,13 @@ const UserShowPage = () => {
                 <div className='edit-user-show-wrapper'>
                     <div className="edit-user-show-container">
                         <form onSubmit={handleEdit}>
-                            <li>
+                            <li className='prof-pic-edit'>
                                 <img className="edit-prof-pic-user-show" src={sessionUser.photo}/>
+                                    <div>
+                                        <input type="file" onChange={handleFile} />
+                                        <h3>Image preview</h3>
+                                        {preview}
+                                    </div>
                             </li>
                                 <label>First Name <br />
                                     <input 

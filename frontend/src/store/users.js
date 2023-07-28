@@ -35,13 +35,11 @@ export const fetchUsers = () => async(dispatch)=>{
 }
 
 export const updateUser = (formData, userId) => async (dispatch) => {
-    
     const response = await csrfFetch(`/api/users/${userId}`, {
         method: "PATCH",
         body: formData
     });
     const data = await response.json();
-    console.log(data.user)
     dispatch(receiveUser(data.user))
     sessionStorage.setItem("currentUser", JSON.stringify(data.user));
     return response;
