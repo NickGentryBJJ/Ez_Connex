@@ -24,6 +24,8 @@
     width: 5rem;
     border-radius: 50%;
     margin-bottom: 20%;
+    min-height: 14vh;
+    max-height: 14vh;
 }
 
 .profile-main-name {

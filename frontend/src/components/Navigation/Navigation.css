@@ -11,6 +11,8 @@
 
 .nav-profile-pic {
   width: 3rem;
+  max-height: 8vh;
+  min-height: 8vh;
   border-radius: 50%;
   position: relative;
 }

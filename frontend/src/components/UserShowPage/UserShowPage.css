@@ -77,3 +77,18 @@
 .user-show-info-bio {
     padding: 10px;
 }
+
+.pic-edit-label {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-image-edit {
+    min-width: 23%;
+    max-width: 23%;
+    max-height: 11vh;
+    min-height: 11vh;
+    border-radius: 50%;
+}

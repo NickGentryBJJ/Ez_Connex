@@ -18,25 +18,31 @@ const UserShowPage = () => {
     const [firstName, setFirstName] = useState(sessionUser.firstName);
     const [lastName, setLastName] = useState(sessionUser.lastName);
     const [title, setTitle] = useState(sessionUser.title);
-    const [photoFile, setPhotoFile] = useState(sessionUser.photo);
+    const [photoFile, setPhotoFile] = useState("");
     const [photoUrl, setPhotoUrl] = useState("");  
+    const [editing, setEditing] = useState(false)
 
     
     
     useEffect(() => {
         dispatch(getUser(userId))
         dispatch(fetchUsers())
-    }, [dispatch, userId])
+    }, [dispatch, userId, editing])
 
 
 
     const handleEdit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('user[photo]', photoFile);
+        if (photoFile) {
+            formData.append('user[photo]', photoFile);
+        }
         formData.append('user[firstName]', firstName);
         formData.append('user[lastName]', lastName);
         formData.append('user[title]', title);
+        setEditing(false)
+        setPhotoUrl("");
+        setPhotoFile("");
         return dispatch(updateUser(formData, userId))
     }
 
@@ -51,10 +57,10 @@ const UserShowPage = () => {
     }   
 
     let preview = null;
-    if (photoUrl) preview = <img className="preview-image" src={photoUrl} alt="" />;
+    if (photoUrl) preview = <img className="preview-image-edit" src={photoUrl} alt="" />;
 
     let eeedit;
-    if (user && user.user.id !== sessionUser.id) {
+    if (user && editing === false) {
         eeedit = (
         <>
             <div className="user-show-wrapper">
@@ -63,11 +69,12 @@ const UserShowPage = () => {
                         <li className='user-show-info-name'>{user.user.firstName} {user.user.lastName}</li>
                         <li className='user-show-info-title'>{user.user.title}</li>
                         <li className='user-show-info-bio'>Do not reject help from others if you want to grow!</li>
-                    </ul>  
+                    <button onClick={() => {setEditing(true)}}>Edit</button>
+                    </ul>
             </div>
         </>
         )
-    } else if(user && user.user.id === sessionUser.id) {
+    } else if(user && user.user.id === sessionUser.id && editing === true) {
         eeedit = (
             <>
                 <div className='edit-user-show-wrapper'>
@@ -76,9 +83,11 @@ const UserShowPage = () => {
                             <li className='prof-pic-edit'>
                                 <img className="edit-prof-pic-user-show" src={sessionUser.photo}/>
                                     <div>
-                                        <input type="file" onChange={handleFile} />
-                                        <h3>Image preview</h3>
-                                        {preview}
+                                        <label className='pic-edit-label'>Profile Picture
+                                            <input type="file" onChange={handleFile} />
+                                            <h3>Image preview</h3>
+                                            {preview}    
+                                        </label>
                                     </div>
                             </li>
                                 <label>First Name <br />
