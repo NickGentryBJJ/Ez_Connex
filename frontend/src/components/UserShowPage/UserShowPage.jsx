@@ -129,9 +129,10 @@ const UserShowPage = () => {
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
                             </label>
-                            <li className='user-show-info-bio'>
+                            <br />
+                            {/* <li className='user-show-info-bio'>
                                 Do not reject help from others if you want to grow!
-                            </li>
+                            </li> */}
                             <button type="submit" className='update-user-button'>Update</button>
                         </form>
                     </div>
