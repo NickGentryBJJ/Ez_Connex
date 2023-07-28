@@ -12,6 +12,7 @@ const UserShowPage = () => {
     
     const dispatch = useDispatch();
     const { userId } = useParams();
+    debugger
     const user = useSelector(state => state.session.selectedUser);
     
     const sessionUser = useSelector(state => state.session.user);
@@ -60,7 +61,7 @@ const UserShowPage = () => {
     if (photoUrl) preview = <img className="preview-image-edit" src={photoUrl} alt="" />;
 
     let eeedit;
-    if (user.user.id !== sessionUser.id) {
+    if (user && user.user.id !== sessionUser.id) {
         eeedit = (
             <>
                 <div className="user-show-wrapper">

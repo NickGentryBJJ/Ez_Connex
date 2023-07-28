@@ -92,3 +92,20 @@
     min-height: 11vh;
     border-radius: 50%;
 }
+
+/* .edit-user-button {
+    border-style: solid;
+    background-color: white;
+    color: #0a66c2;
+    border-color: #0a66c2;
+    height: min-content;
+    min-height: 4px;
+    border-radius: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+} */
