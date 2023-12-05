@@ -1,6 +1,6 @@
 databases:
-  - name: ezconnex 
-    user: ezconnex 
+  - name: ez_connex 
+    user: ez_connex_user 
     plan: free
     region: oregon
 
